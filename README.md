@@ -20,5 +20,4 @@ High level
 Contributors
 ============
 
-Bart Seghers  
-Franky Braem
+Bart Seghers
