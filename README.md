@@ -6,7 +6,7 @@ clubman
 High level
 ==========
 
-- membership management
+- club membership management
 - team management
 - team membership management
 - training an game calendar
