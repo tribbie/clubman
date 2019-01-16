@@ -1,0 +1,303 @@
+@media print {
+  .container {
+      max-width: none!important;
+      width: 100%!important;
+      padding-left: 0;
+      padding-right: 0;
+  }
+  .row {
+      margin-left: -1%;
+      margin-left: -1%;
+  }
+  [class*="col-"] {
+      float: left;
+      padding-left: 1%;
+      padding-right: 1%;
+  }
+  .col-sm-12,
+  .col-md-12,
+  .col-lg-12 {
+      width: 100%
+  }
+  .col-sm-11,
+  .col-md-11,
+  .col-lg-11 {
+      width: 91.66666667%
+  }
+  .col-sm-10,
+  .col-md-10,
+  .col-lg-10 {
+      width: 83.33333333%
+  }
+  .col-sm-9,
+  .col-md-9,
+  .col-lg-9 {
+      width: 75%
+  }
+  .col-sm-8,
+  .col-md-8,
+  .col-lg-8 {
+      width: 66.66666667%
+  }
+  .col-sm-7,
+  .col-md-7,
+  .col-lg-7 {
+      width: 58.33333333%
+  }
+  .col-sm-6,
+  .col-md-6,
+  .col-lg-6 {
+      width: 50%
+  }
+  .col-sm-5,
+  .col-md-5,
+  .col-lg-5 {
+      width: 41.66666667%
+  }
+  .col-sm-4,
+  .col-md-4,
+  .col-lg-4 {
+      width: 33.33333333%
+  }
+  .col-sm-3,
+  .col-md-3,
+  .col-lg-3 {
+      width: 25%
+  }
+  .col-sm-2,
+  .col-md-2,
+  .col-lg-2 {
+      width: 16.66666667%
+  }
+  .col-sm-1,
+  .col-md-1,
+  .col-lg-1 {
+      width: 8.33333333%
+  }
+  a[href]:after {
+    content: none !important;
+  }
+}
+
+
+body {
+ padding-top: 60px;
+ font-family: "Trebuchet MS", "Verdana", "Lucida Sans Unicode", "Sans-serif";
+}
+
+a.clubman-boldlink {
+ font-weight: bold;
+}
+a.clubman-boldlink:hover {
+ text-decoration: none;
+}
+div.clubman-form {
+    margin-bottom: 10px;
+}
+
+.afgelast {
+ text-decoration: line-through;
+}
+
+.clubman-newscontainer {}
+
+.clubman-newsitems {}
+
+.clubman-newsblock {
+  min-height: 20px;
+  padding: 9px;
+  margin-bottom: 20px;
+}
+
+.clubman-newssubtitle {
+}
+
+.clubman-newstitle {
+  font-size: 150%;
+}
+
+.clubman-newsimage img {
+  width: 80%;
+}
+
+a.clubman-newslink {
+}
+
+a.clubman-newslink:hover {
+ text-decoration: none;
+}
+
+.clubman-newsshortmessage {
+}
+
+img.clubman-navlogo {
+  padding-right: 10px;
+}
+
+.clubman-80percent {
+  width: 80%;
+}
+
+/*-dagkalender------------------------------------------------------------------*/
+table.kalenderdag {
+ width: 100%;
+ border-collapse: collapse;
+ border: solid 1px #999;
+}
+table.kalenderdag tr td.gaatnietdoor {
+ padding: 10px 10px;
+ text-decoration: line-through;
+}
+
+/*--maandkalender-----------------------------------------------------------------*/
+table.kalendermaand {
+  /* border-collapse: collapse; */
+}
+table.kalendermaand tr.titel {
+ background-color: #ff9;
+ padding: 2px 0;
+ margin: 0;
+}
+table.kalendermaand tr.weekdagen {
+ padding: 2px 0;
+ margin: 0;
+}
+table.kalendermaand tr.weekdagen th {
+ text-align: center;
+}
+table.kalendermaand tr th a {
+ text-decoration: none;
+ margin: 0 5px;
+}
+table.kalendermaand tr td {
+ width: 100px;
+ height: 70px;
+ vertical-align: top;
+ padding: 0;
+ margin: 0;
+ font-size: 9pt;
+}
+table.kalendermaand tr td.geendatum {
+ background-color: #fff;
+ border: solid 0px #fff;
+}
+table.kalendermaand tr td.even, table.kalendermaand tr td.evenempty {
+ background-color: #ffe;
+ border: solid 1px #ffe;
+}
+table.kalendermaand tr td.odd, table.kalendermaand tr td.oddempty {
+ background-color: #eee;
+ border: solid 1px #eee;
+}
+table.kalendermaand tr td.vandaag, table.kalendermaand tr td.vandaagempty {
+ background-color: #ff9;
+ border: solid 1px #ff9;
+}
+table.kalendermaand tr td ul {
+ list-style-type: none;
+ padding: 0;
+ margin: 0;
+}
+table.kalendermaand tr td ul li {
+ margin: 0 5px;
+ color: #09f;
+}
+table.kalendermaand tr td ul li.thuiswedstrijd, table.kalendermaand tr td ul li.thuiswedstrijd a {
+ text-decoration: none;
+ color: #00f;
+}
+table.kalendermaand tr td ul li.uitwedstrijd, table.kalendermaand tr td ul li.uitwedstrijd a {
+ text-decoration: none;
+ color: #090;
+}
+table.kalendermaand tr td ul li.bekerthuis, table.kalendermaand tr td ul li.bekerthuis a {
+ text-decoration: none;
+ color: #f33;
+}
+table.kalendermaand tr td ul li.bekeruit, table.kalendermaand tr td ul li.bekeruit a {
+ text-decoration: none;
+ color: #f66;
+}
+table.kalendermaand tr td ul li.bekerfinale, table.kalendermaand tr td ul li.bekerfinale a {
+ text-decoration: none;
+ color: #f00;
+}
+table.kalendermaand tr td ul li.oefenthuis, table.kalendermaand tr td ul li.oefenthuis a {
+ text-decoration: none;
+ color: #840;
+}
+table.kalendermaand tr td ul li.oefenuit, table.kalendermaand tr td ul li.oefenuit a {
+ text-decoration: none;
+ color: #840;
+}
+table.kalendermaand tr td ul li.tornooi, table.kalendermaand tr td ul li.tornooi a {
+ text-decoration: none;
+ color: #840;
+}
+table.kalendermaand tr td ul li.gaatniet {
+ text-decoration: line-through;
+}
+table.kalendermaand tr td ul li.gaatnietthuis, table.kalendermaand tr td ul li.gaatnietthuis a {
+ text-decoration: line-through;
+ color: #333;
+}
+table.kalendermaand tr td ul li.gaatnietuit, table.kalendermaand tr td ul li.gaatnietuit a {
+ text-decoration: line-through;
+ color: #666;
+}
+table.kalendermaand tr td ul li.afgelast {
+ text-decoration: line-through;
+}
+table.kalendermaand tr td ul li.afgelastthuis, table.kalendermaand tr td ul li.afgelastthuis a {
+ text-decoration: line-through;
+ color: #333;
+}
+table.kalendermaand tr td ul li.afgelastuit, table.kalendermaand tr td ul li.afgelastuit a {
+ text-decoration: line-through;
+ color: #666;
+}
+table.kalendermaand tr td ul li.forfait {
+ text-decoration: line-through;
+}
+table.kalendermaand tr td ul li.forfaitthuis, table.kalendermaand tr td ul li.forfaitthuis a {
+ text-decoration: line-through;
+ color: #333;
+}
+table.kalendermaand tr td ul li.forfaituit, table.kalendermaand tr td ul li.forfaituit a {
+ text-decoration: line-through;
+ color: #666;
+}
+table.kalendermaand tr td ul li.verjaardag, table.kalendermaand tr td ul li.verjaardag a {
+ text-decoration: none;
+ color: #09f;
+}
+table.kalendermaand tr td ul li.speciaal, table.kalendermaand tr td ul li.speciaal a {
+ text-decoration: none;
+ color: #900;
+}
+table.kalendermaand tr td ul li.activiteit, table.kalendermaand tr td ul li.activiteit a {
+ text-decoration: none;
+ color: #333;
+}
+table.kalendermaand tr td ul li.voorbereiding, table.kalendermaand tr td ul li.voorbereiding a {
+ text-decoration: none;
+ color: #909;
+}
+table.kalendermaand tr td ul li.sportdienstgemeente, table.kalendermaand tr td ul li.sportdienstgemeente a {
+ text-decoration: none;
+ color: #a85;
+}
+table.kalendermaand tr td ul li.bestuurlijk, table.kalendermaand tr td ul li.bestuurlijk a {
+ text-decoration: none;
+ color: #000;
+}
+table.kalendermaand tr td ul li.kalitem:hover {
+ background-color: #ff9;
+ color: #000;
+}
+table.kalendermaand tr td ul li.hoeveelste {
+ font-size: 8pt;
+ font-weight: bold;
+ color: #800;
+ text-align: right;
+}

@@ -1,0 +1,87 @@
+<?php
+/**
+ * Routes configuration
+ *
+ * In this file, you set up routes to your controllers and their actions.
+ * Routes are very important mechanism that allows you to freely connect
+ * different URLs to chosen controllers and their actions (functions).
+ *
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ *
+ * Licensed under The MIT License
+ * For full copyright and license information, please see the LICENSE.txt
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
+ * @package       app.Config
+ * @since         CakePHP(tm) v 0.2.9
+ * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ */
+
+	// the real home page
+	Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
+	// temporary route to home page for new site
+	//Router::connect('/', array('controller' => 'newsitems', 'action' => 'txtpage', 'siteclosed'));
+	Router::connect('/login', array('controller' => 'users', 'action' => 'login'));
+	// routes for the regular website
+	Router::connect('/evenement/kerst', array('controller' => 'pages', 'action' => 'display', 'evenement-kerst'));
+	Router::connect('/jeugd', array('controller' => 'pages', 'action' => 'display', 'jeugd'));
+	Router::connect('/jeugd/ploegen', array('controller' => 'teams', 'action' => 'category', 'jeugd'));
+	Router::connect('/jeugd/vis', array('controller' => 'pages', 'action' => 'display', 'jeugd-vis'));
+	Router::connect('/jeugd/gedragscode', array('controller' => 'pages', 'action' => 'display', 'jeugd-gedragscode'));
+	Router::connect('/jeugd/kamp', array('controller' => 'pages', 'action' => 'display', 'jeugd-kamp'));
+	Router::connect('/jeugd/stages', array('controller' => 'pages', 'action' => 'display', 'jeugd-stages'));
+	Router::connect('/jeugd/clinic', array('controller' => 'pages', 'action' => 'display', 'jeugd-clinic'));
+	Router::connect('/jeugd/scheidsrechters', array('controller' => 'pages', 'action' => 'display', 'jeugd-scheidsrechters'));
+	Router::connect('/jeugd/volgendseizoen', array('controller' => 'pages', 'action' => 'display', 'jeugd-volgendseizoen'));
+	Router::connect('/seniors/ploegen', array('controller' => 'teams', 'action' => 'category', 'seniors'));
+	Router::connect('/wiezijnwij', array('controller' => 'pages', 'action' => 'display', 'wiezijnwij'));
+	Router::connect('/wiezijnwij/promofilm', array('controller' => 'pages', 'action' => 'display', 'wiezijnwij-promofilm'));
+	Router::connect('/wiezijnwij/bestuur', array('controller' => 'pages', 'action' => 'display', 'wiezijnwij-bestuur'));
+	Router::connect('/wiezijnwij/trainers', array('controller' => 'pages', 'action' => 'display', 'wiezijnwij-trainers'));
+	Router::connect('/wiezijnwij/ledenoverzicht', array('controller' => 'pages', 'action' => 'display', 'wiezijnwij-ledenoverzicht'));
+	Router::connect('/wiezijnwij/beleid', array('controller' => 'pages', 'action' => 'display', 'wiezijnwij-beleid'));
+	Router::connect('/wiezijnwij/geschiedenis', array('controller' => 'pages', 'action' => 'display', 'wiezijnwij-geschiedenis'));
+	Router::connect('/wiezijnwij/knipselmap', array('controller' => 'uploads', 'action' => 'presentation', 'pers'));
+	Router::connect('/wiezijnwij/knipselmap/*', array('controller' => 'uploads', 'action' => 'view', 'pers'));
+	Router::connect('/wiezijnwij/clublied', array('controller' => 'pages', 'action' => 'display', 'wiezijnwij-clublied'));
+	Router::connect('/info', array('controller' => 'pages', 'action' => 'display', 'info'));
+	Router::connect('/info/algemeen', array('controller' => 'pages', 'action' => 'display', 'info-algemeen'));
+	Router::connect('/info/wegbeschrijving', array('controller' => 'pages', 'action' => 'display', 'info-wegbeschrijving'));
+	Router::connect('/info/sporthallen', array('controller' => 'pages', 'action' => 'display', 'info-sporthallen'));
+	Router::connect('/info/ongeval', array('controller' => 'pages', 'action' => 'display', 'info-ongeval'));
+	Router::connect('/nieuws', array('controller' => 'newsitems', 'action' => 'index'));
+	//Router::connect('/nieuws/txt/*', array('controller' => 'newsitems', 'action' => 'txtview'));
+	Router::connect('/nieuws/*', array('controller' => 'newsitems', 'action' => 'view'));
+	//Router::connect('/kalender', array('controller' => 'events', 'action' => 'maandkalender'));
+	Router::connect('/kalender/*', array('controller' => 'events', 'action' => 'maandkalender'));
+	Router::connect('/dagkalender/*', array('controller' => 'events', 'action' => 'dagkalender'));
+	Router::connect('/evenementen', array('controller' => 'events', 'action' => 'index'));
+	Router::connect('/evenementen/*', array('controller' => 'events', 'action' => 'view'));
+	Router::connect('/clubblad', array('controller' => 'uploads', 'action' => 'presentation', 'magazine'));
+	Router::connect('/kamp/krant', array('controller' => 'uploads', 'action' => 'presentation', 'kamp'));
+	Router::connect('/kamp/nieuws', array('controller' => 'newsitems', 'action' => 'krant', 'kamp'));
+	Router::connect('/fotoboek', array('controller' => 'photobooks', 'action' => 'index'));
+	Router::connect('/sponsors', array('controller' => 'pages', 'action' => 'display', 'home-sponsors'));
+	Router::connect('/links', array('controller' => 'pages', 'action' => 'display', 'home-links'));
+	Router::connect('/sitemap', array('controller' => 'pages', 'action' => 'display', 'home-sitemap'));
+	Router::connect('/help/*', array('controller' => 'pages', 'action' => 'help'));
+	//Router::connect('/profiel', array('controller' => 'users', 'action' => 'profile'));
+	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
+
+/**
+ * Load all plugin routes. See the CakePlugin documentation on
+ * how to customize the loading of plugin routes.
+ */
+	CakePlugin::routes();
+
+/**
+ * Load the CakePHP default routes. Only remove this if you do not want to use
+ * the built-in default routes.
+ */
+	require CAKE . 'Config' . DS . 'routes.php';
+
+/* Oblivio -- added for pdf and csv output */
+	Router::parseExtensions('pdf', 'csv', 'json', 'xls');
