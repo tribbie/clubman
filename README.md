@@ -1,4 +1,4 @@
-clubman
+Clubman
 =======
 
 (Sports) Club Management
