@@ -6,7 +6,7 @@ Clubman
 High level
 ==========
 
-- membership management
+- club membership management
 - team management
 - team membership management
 - training an game calendar
@@ -20,5 +20,4 @@ High level
 Contributors
 ============
 
-Bart Seghers  
-Franky Braem
+Bart Seghers
