@@ -1,15 +1,19 @@
 Clubman installation
 ====================
 
-## Download and installation
+This version of Clubman is developed as a CakePHP v2 application.  
+I have tested this Clubman app with CakePHP v2.9.0.
 
+
+## Download and merge
+
+This repo contains my Clubman application, which goes in the CakePHP app directory. Because CakePHP also has stuff in the app directory, I cannot git clone my Clubman app directly into the CakePHP app directory. Therefor, the installation is retrieving the repos separately, and then merges them using the `rsync` command.
 
 ### prepare
 
 Create your *clubman* base project directory if needed.
 
     mkdir clubman
-
 
 ### get cakephp
 
@@ -26,7 +30,6 @@ Retrieve this Clubman CakePHP app through GitHub into a separate *appclubman* su
 
     cd clubman
     git clone git://github.com/tribbie/clubman.git ./appclubman
-
 
 ### get markdown plugin
 
@@ -122,7 +125,6 @@ Finally, if needed, set owner and permissions.
     cd clubman
     sudo chown -R www-data:www-data .
     sudo chmod -R a+w app/tmp
-
 
 
 Bart Seghers
