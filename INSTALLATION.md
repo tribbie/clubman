@@ -75,7 +75,7 @@ Next, let's configure the CakePHP security configuration.
     configure the *$prefix* (optional)
 
 
-### configure the database
+### configure the clubman database
 
 Make sure you have an (empty) database (mySQL/MariaDB are tested).
 
@@ -94,7 +94,7 @@ Configure the `$default` connection in the database.php file.
     configure the *default* database shizzle
 
 
-### activate clubman config files (clubman)
+### activate clubman config files
 
 Next, let's activate the example Clubman configuration files.
 
@@ -106,7 +106,7 @@ Next, let's activate the example Clubman configuration files.
     cp -p club-default.php club.php
 
 
-### clubman configuration (clubman)
+### clubman configuration
 
 Next, configure *your* Clubman.
 
