@@ -15,7 +15,7 @@ Create your *clubman* base project directory if needed.
 
     mkdir clubman
 
-### get cakephp
+### get CakePHP
 
 Retrieve CakePHP v2.x through GitHub into your *clubman* base directory.
 
@@ -24,28 +24,28 @@ Retrieve CakePHP v2.x through GitHub into your *clubman* base directory.
 
 [you might want to consider removing the .git directory]
 
-### get clubman app
+### get Clubman app
 
 Retrieve this Clubman CakePHP app through GitHub into a separate *appclubman* subdirectory (for now).
 
     cd clubman
     git clone git://github.com/tribbie/clubman.git ./appclubman
 
-### get markdown plugin
+### get Markdown plugin
 
-Retrieve the MarkDown CakePHP plugin through GitHub into the *appclubman* directory structure.
+Retrieve the Markdown CakePHP plugin through GitHub into the *appclubman* directory structure.
 
     cd clubman
     git clone git://github.com/maurymmarques/markdown-cakephp.git ./appclubman/app/Plugin/Markdown
 
-### merge clubman app into cakephp app directory
+### merge Clubman app into CakePHP app directory
 
-Now, merge the Clubman app into the CakePHP.
+Now, merge the Clubman app into the CakePHP `/app` directory.
 
     cd clubman
     rsync -av --remove-source-files ./appclubman/app/ ./app/
 
-You can now check (it should not contain files) and then remove the *appclubman* directory (it is no longer needed).
+You can now check (it should not contain files) and then remove (it is no longer needed) the *appclubman* directory.
 
 
 ## Configuration
