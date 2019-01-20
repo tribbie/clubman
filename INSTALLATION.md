@@ -6,40 +6,49 @@ Clubman installation
 
 ### prepare
 
-create your <base> directory if needed
+Create your *clubman* base project directory if needed.
+
+    mkdir clubman
 
 
 ### get cakephp
 
-    cd <base>
+Retrieve CakePHP v2.x through GitHub into your *clubman* base directory
+
+    cd clubman
     git clone -b 2.x git://github.com/cakephp/cakephp.git .
 
 [you might want to consider removing the .git directory]
 
 ### get clubman
 
-    cd <base>
+Retrieve this Clubman CakePHP app through GitHub
+
+    cd clubman
     git clone git://github.com/tribbie/clubman.git ./appclubman
 
 
 ### get markdown plugin
 
-    cd <base>
+    cd clubman
     git clone git://github.com/maurymmarques/markdown-cakephp.git ./appclubman/app/Plugin/Markdown
 
 ### merge clubman app into cakepphp app directory
 
-    cd <base>
+    cd clubman
     rsync -av --remove-source-files ./appclubman/app/ ./app/
     you can now check/remove the ./appclubman directory
 
 
 ## Configuration
 
+Now all files are downloaded, let's configure Clubman
 
 ### activate config files (cakephp)
 
-    cd <base>/app/Config
+First, let's activate (replace) the CakePHP configuration files with the Clubman versions.
+
+    cd clubman/app/Config
     cp -p routes.php.clubman routes.php
     cp -p email.php.clubman email.php
     cp -p database.php.clubman database.php
@@ -49,30 +58,37 @@ create your <base> directory if needed
 
 ### database configuration (cakephp)
 
-Make sure you have an (empty) database
+Make sure you have an (empty) database (mySQL/MariaDB are tested)
+
     create database clubman
 
 Initialize the database
-    cd <base>/app/Config/Schema
-    mysql --user=your-db-user --password --database=your-database <clubman_schema.sql
-    cd <base>/app/Config
+
+    cd clubman/app/Config/Schema
+    mysql --user=your-db-user --password --database=your-database <clubman_schema_YYYYMMDD.sql
 
 Configure the $default connection in the database.php file
+
+    cd clubman/app/Config
     vi database.php
 
 
 ### security configuration (cakephp)
 
-    cd <base>/app/Config
+Now, let's configure the CakePHP security configuration.
+
+    cd clubman/app/Config
     vi core.php
     configure the Security.salt
     configure the Security.cipherSeed
-    [configure the $prefix]
+    configure the $prefix (optional)
 
 
 ### activate clubman config files (clubman)
 
-    cd <base>/app/Config/clubman
+Next, let's activate the example Clubman configuration files.
+
+    cd clubman/app/Config/clubman
     cp -p permissions-default.php permissions.php
     cp -p menuweb-default.php menuweb.php
     cp -p menuman-default.php menuman.php
@@ -82,7 +98,9 @@ Configure the $default connection in the database.php file
 
 ### clubman configuration (clubman)
 
-    cd <base>/app/Config/clubman
+Next, configure *your* Clubman.
+
+    cd clubman/app/Config/clubman
     vi club.php
     configure the Club shizzle
     configure the clubweb.home
@@ -92,7 +110,9 @@ Configure the $default connection in the database.php file
 
 ### check/set owners and permissions
 
-    cd <base>
+Finally, if needed, set owner and permissions.
+
+    cd clubman
     sudo chown -R www-data:www-data .
     sudo chmod -R a+w app/tmp
 
