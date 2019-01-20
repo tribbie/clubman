@@ -7,7 +7,7 @@ I have tested this Clubman app with CakePHP v2.9.0.
 
 ## Download and merge
 
-This repo contains my Clubman application, which goes in the CakePHP app directory. Because CakePHP also has stuff in the app directory, I cannot git clone my Clubman app directly into the CakePHP app directory. Therefor, the installation is retrieving the repos separately, and then merges them using the `rsync` command.
+This repo contains my Clubman application, which goes into the CakePHP `/app` directory. Because CakePHP also has stuff in the `/app` directory, I cannot `git clone` my Clubman app directly into the CakePHP `/app` directory. Therefor, the installation is retrieving the repos separately, and then merges them using the `rsync` command.
 
 ### prepare
 
@@ -24,7 +24,7 @@ Retrieve CakePHP v2.x through GitHub into your *clubman* base directory.
 
 [you might want to consider removing the .git directory]
 
-### get clubman
+### get clubman app
 
 Retrieve this Clubman CakePHP app through GitHub into a separate *appclubman* subdirectory (for now).
 
@@ -38,21 +38,21 @@ Retrieve the MarkDown CakePHP plugin through GitHub into the *appclubman* direct
     cd clubman
     git clone git://github.com/maurymmarques/markdown-cakephp.git ./appclubman/app/Plugin/Markdown
 
-### merge clubman app into cakepphp app directory
+### merge clubman app into cakephp app directory
 
 Now, merge the Clubman app into the CakePHP.
 
     cd clubman
     rsync -av --remove-source-files ./appclubman/app/ ./app/
 
-You can now check (it should not contain files) and then remove the ./appclubman directory. It is no longer needed.
+You can now check (it should not contain files) and then remove the *appclubman* directory (it is no longer needed).
 
 
 ## Configuration
 
-Now all files are downloaded, let's start configuring Clubman.
+Now all files are downloaded and merged, let's start configuring Clubman.
 
-### activate config files (cakephp)
+### activate CakePHP config files
 
 First, let's activate (replace) the CakePHP configuration files with the Clubman versions.
 
@@ -64,7 +64,7 @@ First, let's activate (replace) the CakePHP configuration files with the Clubman
     cp -p bootstrap.php.clubman bootstrap.php
 
 
-### security configuration (cakephp)
+### configure CakePHP security
 
 Next, let's configure the CakePHP security configuration.
 
@@ -75,7 +75,7 @@ Next, let's configure the CakePHP security configuration.
     configure the *$prefix* (optional)
 
 
-### database configuration (cakephp)
+### configure the database
 
 Make sure you have an (empty) database (mySQL/MariaDB are tested).
 
@@ -87,7 +87,7 @@ Initialize the database.
     cd clubman/app/Config/Schema
     mysql --user=your-db-user --password --database=your-database <clubman_schema_YYYYMMDD.sql
 
-Configure the $default connection in the database.php file
+Configure the `$default` connection in the database.php file.
 
     cd clubman/app/Config
     vi database.php
