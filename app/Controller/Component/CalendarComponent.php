@@ -90,8 +90,10 @@ class CalendarComponent extends Component {
 													'month'      => $mm,
 													'day'        => $dd,
 													'dow'        => $dow,
+													'time'       => '',
 													'class'      => 'verjaardag',
-													'titlemini' => $member['Member']['firstname'],
+													'change'     => '',
+													'titlemini'  => $member['Member']['firstname'],
 													'titleshort' => $member['Member']['firstname'],
 													'title'      => $member['Member']['firstname'] . ' - ' . $dd . '/' . $mm,
 													'bubble'     => $member['Member']['firstname'] . ' ' . $member['Member']['lastname'] . ' wordt ' . $newage . ' jaar!'
