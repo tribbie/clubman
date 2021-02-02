@@ -2,12 +2,13 @@ Clubman installation
 ====================
 
 This version of Clubman is developed as a CakePHP v2 application.  
-I have tested this Clubman app with CakePHP v2.9.0.
+I have tested this Clubman app with CakePHP v2.10.22.  
+[CakePHP v2.x Cookbook](https://book.cakephp.org/2/en/index.html)
 
 
 ## Download and merge
 
-This repo contains my Clubman application, which goes into the CakePHP `/app` directory. Because CakePHP also has stuff in the `/app` directory, I cannot `git clone` my Clubman app directly into the CakePHP `/app` directory. Therefor, the installation is retrieving the repos separately, and then merges them using the `rsync` command.
+This repo contains my Clubman application, which goes into the CakePHP `/app` directory. Because CakePHP also has stuff in the `/app` directory, I cannot `git clone` my Clubman app directly into the CakePHP `/app` directory. Therefor, this installation is accomplished by retrieving the repos separately, and then merging them using the `rsync` command.
 
 ### prepare
 
@@ -22,18 +23,19 @@ Retrieve CakePHP v2.x through GitHub into your *clubman* base directory.
     cd clubman
     git clone -b 2.x git://github.com/cakephp/cakephp.git .
 
-[you might want to consider removing the .git directory]
+[you might now want to consider removing the CakePHP .git directory]
 
 ### get Clubman app
 
 Retrieve this Clubman CakePHP app through GitHub into a separate *appclubman* subdirectory (for now).
 
     cd clubman
-    git clone git://github.com/tribbie/clubman.git ./appclubman
+    git clone https://github.com/tribbie/clubman.git ./appclubman
 
 ### get Markdown plugin
 
 Retrieve the Markdown CakePHP plugin through GitHub into the *appclubman* directory structure.
+This plugin is used to show content that is saved as MarkDown.
 
     cd clubman
     git clone git://github.com/maurymmarques/markdown-cakephp.git ./appclubman/app/Plugin/Markdown
@@ -116,6 +118,13 @@ Next, configure *your* Clubman.
     configure the *clubweb.home*
     configure the *clubman.home*
     configure the *clubmail* addresses
+
+Current "theme" possibilities:
+
+- Since Bootstrap 3.x is used, it is possible to switch to a bootswatch theme both in Club.clubweb and Club.clubman
+  https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/spacelab/bootstrap.min.css
+- In the Club.colors array, you can provide your club colors
+  They are used to draw the two sets of lines.
 
 
 ### check/set owners and permissions
