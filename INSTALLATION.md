@@ -122,7 +122,7 @@ Next, configure *your* Clubman.
 Current "theme" possibilities:
 
 - Since Bootstrap 3.x is used, it is possible to switch to a bootswatch theme both in Club.clubweb and Club.clubman
-  https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/spacelab/bootstrap.min.css
+  https://bootswatch.com/3/
 - In the Club.colors array, you can provide your club colors
   They are used to draw the two sets of lines.
 
