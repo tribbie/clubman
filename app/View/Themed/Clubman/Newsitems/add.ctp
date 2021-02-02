@@ -106,6 +106,43 @@
 
 <hr/>
 
+<script>
+	$(document).ready(function() {
+			$('#NewsitemContent').summernote({
+				placeholder: 'Je artikel hier...',
+				spellCheck: false,
+				toolbar: [
+					['style', ['style']],
+					['font', ['bold', 'italic', 'underline', 'clear']],
+					['para', ['ul', 'ol', 'paragraph']],
+					['insert', ['link', 'picture']],
+					['view', ['fullscreen', 'codeview', 'help']],
+				],
+				popover: {
+					image: [
+						['image', ['resizeFull', 'resizeHalf', 'resizeQuarter', 'resizeNone']],
+						['float', ['floatLeft', 'floatRight', 'floatNone']],
+						['remove', ['removeMedia']]
+					],
+					link: [
+						['link', ['linkDialogShow', 'unlink']]
+					],
+					table: [
+						['add', ['addRowDown', 'addRowUp', 'addColLeft', 'addColRight']],
+						['delete', ['deleteRow', 'deleteCol', 'deleteTable']],
+					],
+					air: [
+						['color', ['color']],
+						['font', ['bold', 'underline', 'clear']],
+						['para', ['ul', 'paragraph']],
+						['table', ['table']],
+						['insert', ['link', 'picture']]
+					]
+				}
+			});
+	});
+</script>
+
 <?php
 	//if (isset($newsitem)) pr($newsitem);
 	//pr($currentUser);

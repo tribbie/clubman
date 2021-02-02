@@ -96,7 +96,7 @@
 					<span class='actionright pull-right'><?= $this->Html->link('wijzig', array('controller' => 'teammembers', 'action' => 'team', $team['Team']['id']))?></span>
 				<?php endif ; ?>
 			</div>
-		  <div class="panel-body">
+			<div class="panel-body">
 				<?php
 					echo '<dl class="dl-horizontal">';
 					if (count($team['Teammember']) > 0) {
@@ -135,7 +135,7 @@
 		  <div class="panel-heading">
 				Enkele handige teamlinks
 			</div>
-		  <div class="panel-body">
+			<div class="panel-body">
 				<?php
 					// first, define all links
 					$cmLinks = array(
@@ -458,5 +458,8 @@
 <hr/>
 
 <?php
-// pr($team);
+	pr($team);
+	pr($currentUser);
+	pr($cmaclrequest);
+	pr($cmCurrentRoles);
 ?>

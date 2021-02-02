@@ -152,6 +152,9 @@ class AppController extends Controller {
 		/// Set logged in state
 		$this->loggedIn = $this->Auth->loggedIn();
 		$this->currentUser = $this->Auth->user();
+		if (! isset($this->currentUser['role'])) {
+			$this->currentUser['role'] = 'visitor';
+		}
 		/// Determines what non-logged-in users have access to
 		/// This will allow display WITHOUT ANY authentication -- maybe a nice way to put most pages of the "normal website" in the Pages views
 		$this->Auth->allow('display');
@@ -207,9 +210,10 @@ class AppController extends Controller {
 		$this->loadModel('Event');
 		$this->Event->recursive = -1;
 		$shorteventsfields = array('Event.id', 'Event.name', 'Event.title', 'Event.year');
+		#$yesterdaymidnight = strtotime('yesterday midnight');
 		$todaymidnight = strtotime('today midnight');
 		$shorteventsconditions = array(
-				'Event.season >=' => $this->currentSeason,
+				//'Event.season >=' => $this->currentSeason,
 				'Event.publish_date_start_epoch <=' => $todaymidnight,
 				'Event.publish_date_end_epoch >=' => $todaymidnight,
 				'Event.status' => 'public'
@@ -220,9 +224,9 @@ class AppController extends Controller {
 		/// Fetch published newsitems
 		$this->loadModel('Newsitem');
 		$this->Newsitem->recursive = -1;
-		$shortnewsitemsfields = array('Newsitem.id', 'Newsitem.name', 'Newsitem.title', 'Newsitem.subtitle', 'Newsitem.season', 'Newsitem.image_url', 'Newsitem.content');
+		$shortnewsitemsfields = array('Newsitem.id', 'Newsitem.name', 'Newsitem.title', 'Newsitem.subtitle', 'Newsitem.season', 'Newsitem.image_url', 'Newsitem.content', 'Newsitem.activate', 'Newsitem.activate_epoch', 'Newsitem.expire', 'Newsitem.expire_epoch');
 		$shortnewsitemsconditions = array(
-				'Newsitem.season >=' => $this->currentSeason,
+				//'Newsitem.season >=' => $this->currentSeason,
 				'Newsitem.activate_epoch <=' => $todaymidnight,
 				'Newsitem.expire_epoch >=' => $todaymidnight,
 				'Newsitem.status' => 'public'

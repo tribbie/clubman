@@ -106,6 +106,82 @@
 
 <hr/>
 
+<script>
+	$(document).ready(function() {
+			$('#NewsitemContent').summernote({
+				placeholder: 'Je artikel hier...',
+				spellCheck: false,
+				toolbar: [
+					['style', ['style']],
+					['font', ['bold', 'italic', 'underline', 'clear']],
+					['para', ['ul', 'ol', 'paragraph']],
+					['insert', ['link', 'picture']],
+					['view', ['fullscreen', 'codeview', 'help']],
+				],
+				popover: {
+					image: [
+						['image', ['resizeFull', 'resizeHalf', 'resizeQuarter', 'resizeNone']],
+						['float', ['floatLeft', 'floatRight', 'floatNone']],
+						['remove', ['removeMedia']]
+					],
+					link: [
+						['link', ['linkDialogShow', 'unlink']]
+					],
+					table: [
+						['add', ['addRowDown', 'addRowUp', 'addColLeft', 'addColRight']],
+						['delete', ['deleteRow', 'deleteCol', 'deleteTable']],
+					],
+					air: [
+						['color', ['color']],
+						['font', ['bold', 'underline', 'clear']],
+						['para', ['ul', 'paragraph']],
+						['table', ['table']],
+						['insert', ['link', 'picture']]
+					]
+				},
+				callbacks: {
+						onImageUpload: function(files) {
+								for(let i=0; i < files.length; i++) {
+										$.uploadImage(files[i]);
+								}
+						}
+				},
+				height: 500,
+			});
+	});
+
+	$.uploadImage = function (file) {
+			let thisImageData = new FormData();
+			thisImageData.append('imagedata', file, file.name);
+			$.ajax({
+					method: 'POST',
+					url: "<?=$this->Html->url(array('action' => 'ajuploadimage', 'ext' => 'json'))?>",
+					contentType: false,
+					cache: false,
+					processData: false,
+					data: thisImageData,
+					dataType: 'json',
+					success: function (img) {
+							console.log(img);
+							console.log(img.data.resultdata.rc.uploadimage);
+							console.log(img.data.resultdata.url);
+							if (img.data.resultdata.rc.uploadimage == 0) {
+								var imageUrl = img.data.resultdata.url;
+								console.log("Inserting " + imageUrl);
+								$('#NewsitemContent').summernote('insertImage', imageUrl);
+							} else {
+								console.log(img.data.resultdata);
+								$('#NewsitemContent').summernote('insertText', img.data.resultdata.error);
+							}
+							//$('#NewsitemContent').summernote('insertImage', img);
+					},
+					error: function (jqXHR, textStatus, errorThrown) {
+							console.error(textStatus + " " + errorThrown);
+					}
+			});
+	};
+</script>
+
 <?php
 	//if (isset($newsitem)) pr($newsitem);
 	//pr($currentUser);

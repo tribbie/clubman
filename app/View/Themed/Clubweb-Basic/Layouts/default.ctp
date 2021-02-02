@@ -86,16 +86,22 @@
             </div>
             <div class="col-xs-12 col-sm-6 col-md-12 col-lg-12">
               <!--
-              next line also lists the individual newsitems, but they are already shown on the main screen
-              this->element('news')
+              Next line also lists the individual newsitems, but they are already shown on the main screen ...
+              $this->element('news')
               -->
-              <!-- Only a link to all newsitems -->
+              <!-- ... so instead we only show a *link* to all newsitems -->
               <div class="panel panel-default">
                 <div class="panel-heading">
                   <a href="<?=$this->base?>/nieuws" class="boldlink" title="al ons nieuws">nieuws</a>
                 </div>
               </div>
             </div>
+            <!--
+            Not many magazines were made lately ...
+            <div class="col-xs-12 col-sm-6 col-md-12 col-lg-12">
+              $this->element('magazines')
+            </div>
+            -->
             <div class="col-xs-12 col-sm-6 col-md-12 col-lg-12">
               <?=$this->element('magazines');?>
             </div>
@@ -117,6 +123,12 @@
     </script>
 
 <?php
+  // echo('<hr/>');
+  // echo('<hr/>current user<br/>');
+  // pr($currentUser);
+  // echo('<hr/>current acl<br/>');
+  // pr($cmaclrequest);
+  // pr($currentClub);
   // pr($cmmenuMerged);
   // pr($clubmanteams);
   // pr($magazines);

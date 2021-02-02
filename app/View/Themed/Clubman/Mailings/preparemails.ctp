@@ -35,7 +35,7 @@
 		<?php if ($enqueteSeason == $currentSeason) : ?>
 			<?= $this->Html->link('prepareer mails voor allemaal', array('action' => 'preparemails', $mailing['Mailing']['id'], 'all'), array('class' => 'btn btn-sm btn-info', 'role' => 'button', 'title' => 'prepareer mails')) ?>
 			<?= $this->Html->link('prepareer mails voor de niet-ingevulde', array('action' => 'preparemails', $mailing['Mailing']['id'], 'empty'), array('class' => 'btn btn-sm btn-info', 'role' => 'button', 'title' => 'prepareer mails')) ?>
-			<?= $this->Html->link('prepareer test mails', array('action' => 'preparemails', $mailing['Mailing']['id'], 'test'), array('class' => 'btn btn-sm btn-info', 'role' => 'button', 'title' => 'prepareer test mails')) ?>
+			<?= $this->Html->link('prepareer test mails (AAA - * - test)', array('action' => 'preparemails', $mailing['Mailing']['id'], 'test'), array('class' => 'btn btn-sm btn-info', 'role' => 'button', 'title' => 'prepareer test mails')) ?>
 		<?php endif ; ?>
 	</p>
 

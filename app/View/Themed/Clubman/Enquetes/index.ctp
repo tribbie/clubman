@@ -1,11 +1,14 @@
 <!-- app/View/Enquetes/index.ctp -->
 <h2>Enquetes</h2>
 
+<?= $this->Html->link('Wat meer uitleg', array('controller' => 'help', 'action' => 'mailing_enquete_2020'), array('title' => 'Tribbie-uitleg')); ?>
+
+<hr/>
+
 <?php foreach ($enqueteSeasons as $enqueteSeason) : ?>
 
 	<?php if ($enqueteSeason['Enquete']['season'] == $currentSeason) : ?>
 		<?= $this->Html->link('Toon de lijst van seizoen ' . $enqueteSeason['Enquete']['season'] . ' (huidig seizoen)', array('action' => 'lijst', $enqueteSeason['Enquete']['season']), array('title' => 'Toon de lijst van '.$enqueteSeason['Enquete']['season'])); ?>
-	 - <?= $this->Html->link('meer uitleg', array('controller' => 'help', 'action' => 'mailing_enquete_2018'), array('title' => 'Tribbie-uitleg')); ?>
 	<?php else : ?>
 		<?= $this->Html->link('Toon de lijst van seizoen ' . $enqueteSeason['Enquete']['season'], array('action' => 'lijst', $enqueteSeason['Enquete']['season']), array('title' => 'Toon de lijst van '.$enqueteSeason['Enquete']['season'])); ?>
 	<?php endif ; ?>
@@ -15,7 +18,7 @@
 
 <hr/>
 
-<?= $this->Html->link('Genereer de enquetes van dit seizoen', array('action' => 'generate'), array('title' => 'Genereer de enquetes')); ?>
+<?= $this->Html->link('Genereer de enquetes van dit seizoen', array('action' => 'generate'), array('title' => 'Genereer de enquetes')); ?> (interactief)
 
 <hr/>
 

@@ -18,9 +18,10 @@ class UsersController extends AppController {
 
 	public function beforeFilter() {
 		parent::beforeFilter();
-		$this->Auth->allow('login', 'logout', 'root', 'resetpassword');
+		$this->Auth->allow('login', 'logout', 'root');
 		//$this->Auth->deny('index');
 	}
+
 
 	public function login() {
 		if ($this->request->is('post')) {
@@ -81,6 +82,39 @@ class UsersController extends AppController {
 	}
 
 
+	/// Emergency function to reset the root password
+	///
+	/// 6 steps:
+	/// step 1: uncomment this function
+	/// step 2: add the function to the allow list (in beforeFilter)
+	/// step 3: set the resetkey for root (directly in the database)
+	/// step 4: go to the url clubman/users/resetroot/<your_resetkey>
+	/// step 5: remove the function from the allow list (in beforeFilter)
+	/// step 6: re-comment this function
+	///
+	// public function resetroot($resetkey = null) {
+	// 	$this->User->id = 1;
+	// 	if (!$this->User->exists()) {
+	// 		throw new NotFoundException(__('Root gebruiker bestaat niet. Reset mislukt.'));
+	// 	}
+	// 	$user = $this->User->read(null);
+	// 	if (trim($resetkey) == trim($user['User']['resetkey'])) {
+	// 		$user['User']['password'] = 'root';
+	// 		$user['User']['password_confirmation'] = 'root';
+	// 		$user['User']['resetkey'] = null;
+	// 		if ($this->User->save($user)) {
+	// 			$this->Session->setFlash(__('Root gebruiker werd gereset.'), 'flash-info');
+	// 			parent::logAction(__FUNCTION__, 'user', $this->User->id);
+	// 			$this->redirect(array('controller' => 'users', 'action' => 'login'));
+	// 		} else {
+	// 			$this->Session->setFlash(__('Root gebruiker kon niet worden gereset.'), 'flash-error');
+	// 		}
+	// 	} else {
+	// 		$this->Session->setFlash(__('Ongeldige resetkey. Reset mislukt.'), 'flash-error');
+	// 	}
+	// }
+
+
 	public function index() {
 		$this->User->recursive = 1;
 		$listFields = array('User.id', 'User.uuid', 'User.member_id', 'User.username', 'User.role', 'User.active', 'User.remark', 'Member.lastname', 'Member.firstname', 'Member.email');
@@ -127,14 +161,14 @@ class UsersController extends AppController {
 			throw new NotFoundException(__('Gebruiker bestaat niet.'));
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
-			/// Validat the roles: max 5 and no empty entry
+			/// Validate the roles: max 5 and no empty entry
 			if (count($this->request->data['User']['roles']) > 5) {
 				$this->Session->setFlash(__('De gebruiker kon niet worden bewaard. Er zijn te veel rollen gekozen (max 5).'), 'flash-error');
 			} else {
 				if (count(array_filter($this->request->data['User']['roles'])) == count($this->request->data['User']['roles'])) {
-					/// Generate a uuid 5ba63bb8-6a3c-4ba2-b923-0512c0a8000c
+					/// Generate a uuid is only needed in add
 					//if ($this->request->data['User']['uuid'] == '') {
-						$this->request->data['User']['uuid'] = CakeText::uuid();
+					//	$this->request->data['User']['uuid'] = CakeText::uuid();
 					//}
 					/// Flatten selected (multi-)roles into list
 					$this->request->data['User']['role'] = implode(',', $this->request->data['User']['roles']);

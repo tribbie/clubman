@@ -7,7 +7,7 @@
 <?php else : ?>
 
 	<?php if ($this->request->data['Enquete']['id'] == '00000000000000000000002015201600') : ?>
-
+		<!-- Volgende stuk is volgens mij niet meer relevant -->
 		<div style="background: red;" class="alert alert-danger" role="alert">SPECIMEN -- ENKEL OM TE BEKIJKEN</div>
 		<div style="background: red;" class="alert alert-danger" role="alert">SPECIMEN -- NIET BEWAREN AUB</div>
 

@@ -274,6 +274,9 @@ class MembersController extends AppController {
 							'member'   => array('filter' => '_F_', 'linkfield' => 'picture_id',        'categorystring' => 'foto'),
 							'memberid' => array('filter' => '_L_', 'linkfield' => 'picturelicense_id', 'categorystring' => 'licentie')
 						);
+		if (!$category) {
+			$category = 'memberid';
+		}
 		$formatdata = array(
 			'last_first_yyyy_yy_c_license'   => array('seasonpart' => '_YYYY_YY', 'example' => 'Smith_John_2017_18'.$categorydata[$category]['filter'].'0123456.JPG'),
 			'last_first_yyyy_yyyy_c_license' => array('seasonpart' => '_YYYY_YYYY', 'example' => 'Smith_John_2017_2018'.$categorydata[$category]['filter'].'0123456.JPG')

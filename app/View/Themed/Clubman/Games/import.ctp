@@ -187,9 +187,17 @@
 
 	function validgame(onegame) {
 		console.log("checking [" + onegame.Wedstrijdnr + "].");
-		var tmpgamereeks = onegame.Wedstrijdnr.split("-");
-		console.log("checking [" + tmpgamereeks[0] + "] =?= [" + '<?=$teaminfo['Team']['competition'];?>' + "].");
-		if (tmpgamereeks[0] != '<?=$teaminfo['Team']['competition'];?>') {
+		// the split gave a problem when multiple dashes were present in the reeks: U11X2-2N3B-0001
+		//var tmpgamereeksparts = onegame.Wedstrijdnr.split("-");
+		// So we now search for the last dash, and remove the suffix from there)
+		var tmpgamereeks = '';
+		var n = onegame.Wedstrijdnr.lastIndexOf("-");
+		if (n > 0) {
+			tmpgamereeks = onegame.Wedstrijdnr.substring(0, n);
+		}
+		//tmpgamereeks = onegame.Wedstrijdnr.split("-");
+		console.log("checking [" + tmpgamereeks + "] =?= [" + '<?=$teaminfo['Team']['competition'];?>' + "].");
+		if (tmpgamereeks != '<?=$teaminfo['Team']['competition'];?>') {
 			return false;
 		}
 		console.log("checking existence of Datum: [" + onegame.Datum + "].");

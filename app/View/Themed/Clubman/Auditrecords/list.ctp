@@ -1,7 +1,8 @@
-<h2>Records of <?=$filter['username']?> (<?=count($records)?>)</h2>
+<h2>Records</h2>
 
-<?=$this->Html->link('Terug', array('controller' => 'auditrecords', 'action' => 'index'))?>
+Model: "<?=$filter['model']?>" - Action: "<?=$filter['action']?>" - records found: <?=count($records)?>
 <hr/>
+
 <div class="row">
 	<div class="col-xs-12">
 
@@ -25,7 +26,7 @@
 						<td class="text-right"><?=$record['Auditrecord']['userid']?></td>
 						<td><?=$record['Auditrecord']['username']?></td>
 						<td><?=$record['Auditrecord']['userrole']?></td>
-						<td><?=$this->Html->link($record['Auditrecord']['action'], array('action' => 'list', 'a' => $record['Auditrecord']['action'], 'm' => $record['Auditrecord']['model']))?></td>
+						<td><?=$this->Html->link($record['Auditrecord']['action'], array('action' => 'list', 'a' => $record['Auditrecord']['action']))?></td>
 						<td><?=$this->Html->link($record['Auditrecord']['model'], array('action' => 'list', 'm' => $record['Auditrecord']['model']))?></td>
 						<td class="text-right"><?=$record['Auditrecord']['modelid']?></td>
 						<td><?=$record['Auditrecord']['userip']?></td>

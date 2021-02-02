@@ -1,7 +1,9 @@
 <?php
 class EffortsController extends AppController {
 
-	public $components = array('RequestHandler');
+	/// Include the RequestHandler, it makes sure the proper layout and views files are used (for csv and pdf)
+	/// Also check your routes.php for Router::parseExtensions('pdf', 'csv');
+	var $components = array('RequestHandler');
 
 	var $tasknames = array(
 										'' => '',
@@ -12,7 +14,21 @@ class EffortsController extends AppController {
 										'coordinatie' => 'Coördinatie',
 										'andere' 			=> 'Andere'
 									);
-	var $taskdurations = array('0' => '-', '30' => 'half uur', '45' => 'drie kwartier', '60' => '1 uur', '75' => '1 uur en een kwart', '90' => '1,5 uur', '105' => '1 uur en drie kwart', '120' => '2 uur', '135' => '2 uur en een kwart', '150' => '2,5 uur', '180' => '3 uur', '210' => '3,5 uur', '240' => '4 uur');
+	var $taskdurations = array(
+												'0' => '-',
+												'30' => 'half uur',
+												'45' => 'drie kwartier',
+												'60' => '1 uur',
+												'75' => '1 uur en een kwart',
+												'90' => '1,5 uur',
+												'105' => '1 uur en drie kwart',
+												'120' => '2 uur',
+												'135' => '2 uur en een kwart',
+												'150' => '2,5 uur',
+												'180' => '3 uur',
+												'210' => '3,5 uur',
+												'240' => '4 uur'
+											);
 
 
 	public function index() {
@@ -139,7 +155,21 @@ class EffortsController extends AppController {
 		if (isset($this->params['named']['to'])) {
 			$dateto = $this->params['named']['to'];
 		}
-		$this->request->data = array('Effort' => array('datefrom' => $datefrom, 'dateto' => $dateto));
+		if (isset($this->params['ext'])) {
+			/// csv extention found - fetch the data and return it
+			if (!$datefrom) $datefrom = $this->currentYears[0].'-08-01';
+			if (!$dateto)   $dateto   = $this->currentYears[1].'-07-31';
+			$effortsAndTotals = $this->getEffortsAndTotals($datefrom, $dateto);
+			parent::logAction(__FUNCTION__, 'effort', 0);
+			$period  = $effortsAndTotals['period'];
+			$efforts = $effortsAndTotals['efforts'];
+			$totals  = $effortsAndTotals['totals'];
+			$this->set('period', $period);
+			$this->set('totals', $totals);
+		} else {
+			/// Initial load of the periodic overview
+			$this->request->data = array('Effort' => array('datefrom' => $datefrom, 'dateto' => $dateto));
+		}
 	}
 
 

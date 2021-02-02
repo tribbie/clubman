@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: *.ctp
+
+User-agent: bingbot
+Disallow: /subscriptions/confirm
+

@@ -51,8 +51,13 @@
           <?=$this->Html->link('weekendoverzicht', array('controller' => 'games', 'action' => 'shortoverview', 'all', $weekkalender['meta']['begin']['dateYMD'], $weekkalender['meta']['end']['dateYMD']), array('title' => 'de wedstrijden van aanstaande weekend'))?>
         </li>
         <li>
+          <?=$this->Html->link('jeugd thuis', array('controller' => 'games', 'action' => 'homeoverview', 'jeugdcompetitie', $weekkalender['meta']['begin']['dateYMD']), array('title' => 'de thuiswedstrijden van de jeugd'))?>
+        </li>
+        <!--
+        <li>
           <?=$this->Html->link('uitgebreid weekendoverzicht', array('controller' => 'games', 'action' => 'overview', 'all', $weekkalender['meta']['begin']['dateYMD'], $weekkalender['meta']['end']['dateYMD']), array('title' => 'de wedstrijden van aanstaande weekend, maar dan gedetailleerder'))?>
         </li>
+        -->
         <li>
           <?=$this->Html->link('overzicht wijzigingen', array('controller' => 'games', 'action' => 'changes'), array('title' => 'wijzigingen ten opzichte van de oorspronkelijke kalender'))?>
         </li>

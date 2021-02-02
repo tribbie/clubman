@@ -1,4 +1,4 @@
-<h2><?=(isset($cmclub['shortname']) ? $cmclub['shortname'] : "Clubman")?> wedstrijden - <?=$team['Team']['name']?>: <?=$team['Team']['competition']?></h2>
+<h2><?=(isset($cmclub['shortname']) ? $cmclub['shortname'] : "Clubman")?> thuiswedstrijden - <?=$team['Team']['name']?>: <?=$team['Team']['competition']?></h2>
 <h3>Periode: van <?=$report_meta['period']['datefrom']?> tot <?=$report_meta['period']['dateto']?></h3>
 
 <div class="table-responsive">
@@ -6,15 +6,16 @@
 		<tr class="info">
 			<th class="text-right">Datum</th>
 			<th class="text-right">Tijd</th>
-			<?php if (($team['Team']['name'] == 'allemaal') or ($team['Team']['name'] == 'jeugd') or ($team['Team']['name'] == 'seniors')) : ?>
-				<th>Team</th>
-				<?php $colspanspelers = '4'; ?>
-			<?php else : ?>
-				<?php $colspanspelers = '3'; ?>
-			<?php endif; ?>
-			<th>Thuisploeg</th>
+			<th>Team</th>
 			<th>Bezoekers</th>
 			<th>Coach</th>
+			<?php
+				$colspanopmerking = 3;
+			 	if ($report_meta['category'] == 'jeugdcompetitie') {
+				 	$colspanopmerking = 4;
+				 	echo "<th>Scheidsrechter</th>";
+			 	}
+			?>
 		</tr>
 		<?php foreach ($games as $game) : ?>
 			<?php
@@ -41,22 +42,22 @@
 			<tr title="<?=$trtitle?> " <?=$trclass?>>
 				<td class="text-right"><?=$weekd[$game['Game']['day_of_week']]?>&nbsp;<?=date("j/m/Y", strtotime($game['Game']['game_date']))?></td>
 				<td class="text-right"><?=substr($game['Game']['game_time'], 0, 5)?></td>
-				<?php if (($team['Team']['name'] == 'allemaal') or ($team['Team']['name'] == 'jeugd') or ($team['Team']['name'] == 'seniors')) : ?>
-					<td><?=$game['Team']['mininame']?><?=$gamesuffix?></td>
-			 	<?php endif; ?>
-				<td><?=$game['Game']['game_home']?></td>
+				<td><?=$game['Team']['shortname']?><?=$gamesuffix?></td>
 				<td><?=$game['Game']['game_away']?></td>
 				<?php if (isset($game['Coach']['Member'])) : ?>
 					<td><?=$game['Coach']['Member']['name']?></td>
 				<?php else : ?>
 					<td>?</td>
 				<?php endif; ?>
+				<?php if ($report_meta['category'] == 'jeugdcompetitie') : ?>
+					<td><?=$game['Game']['game_referee']?></td>
+				<?php endif; ?>
 			</tr>
 			<!-- De opmerking (als er een is) -->
 			<?php	if (trim($game['Game']['remark']) != '') : ?>
 				<tr title="<?=$trtitle?>" <?=$trclass?>>
 					<th colspan="2" class="text-right spelersheader">opmerking</th>
-					<td colspan="<?=$colspanspelers?>" class='spelerslijst'>
+					<td colspan="<?=$colspanopmerking?>" class='opmerking'>
 						<?=$game['Game']['remark']?>
 					</td>
 				</tr>
@@ -67,9 +68,9 @@
 
 <?php
 	// if ($loggedIn and ($this->Permission->iAmOneOf($cmCurrentRoles, ['root']))) {
-	// 	pr($report_meta);
-	// 	pr($team);
-	// 	pr($games);
+	// 	 pr($report_meta);
+	// 	 pr($team);
+	// 	 pr($games);
 	// }
 	// pr($games);
 ?>

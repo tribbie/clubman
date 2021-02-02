@@ -1,9 +1,9 @@
 <?php
 $config = array (
-  'Clubman' => 
+  'Clubman' =>
   array (
-    'version' => '0.6',
+    'version' => '0.7',
     'allowlogin' => 'no',
-    'currentseason' => '2018-2019',
+    'currentseason' => '2020-2021',
   ),
 );

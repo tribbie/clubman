@@ -1,6 +1,6 @@
 <?php
 $config['Club'] = [
-          'domain'    => 'clubman.be',
+          'domain'    => 'clubdomain.be',
           'id'        => 'CMid',
           'name'      => 'Clubman',
           'longname'  => 'Club Management',
@@ -21,14 +21,14 @@ $config['Club'] = [
             //'database'  => 'default',
           ],
           'clubweb' => [
-            'home'           => '/clubman-cake290',
+            'home'           => '/clubman-home',
             'theme'          => 'Clubweb-Basic',
-            'bootstraptheme' => 'https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/spacelab/bootstrap.min.css'
+            'bootstraptheme' => 'https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/spacelab/bootstrap.min.css'
           ],
           'clubman' => [
-            'home'           => '.',
+            'home'           => '/clubman-home',
             'theme'          => 'Clubman',
-            'bootstraptheme' => 'https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/spacelab/bootstrap.min.css'
+            'bootstraptheme' => 'https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/spacelab/bootstrap.min.css'
           ],
           'clubmail'  => [
             'webmaster' => [

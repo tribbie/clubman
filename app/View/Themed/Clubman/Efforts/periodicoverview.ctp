@@ -9,7 +9,7 @@
 		});
 	});
 </script>
-<!-- app/View/Efforts/listteam.ctp -->
+<!-- app/View/Efforts/periodicoverview.ctp -->
 <h2>Overzicht <?=(isset($cmclub['shortname']) ? $cmclub['shortname'] : "Clubman")?> prestaties</h2>
 <div id="effortsTotals">
 
@@ -91,6 +91,9 @@
 		-->
 
 		<div class="col-xs-12">
+			<div id="effortsTotalsDownloadLinks" style="display: none;">
+				<a id="effortsTotalsDownloadLinkCSV" href="#">Download deze totalen</a>
+			</div>
 			<div class="table-responsive">
 				<table class="table table-striped table-condensed table-hover normalelijst">
 					<thead>
@@ -244,6 +247,9 @@
 				var datefrom = document.getElementById("EffortDatefrom").value;
 				var dateto = document.getElementById("EffortDateto").value;
 				self.logIt('Fetching the totals for the period: ' + datefrom + ' - '+ dateto);
+				var totalsdownloadlink = document.getElementById("effortsTotalsDownloadLinkCSV");
+				document.getElementById("effortsTotalsDownloadLinkCSV").href = "<?=$this->Html->url(array('action' => 'periodicoverview'))?>/from:"+datefrom+"/to:"+dateto+".csv";
+				document.getElementById("effortsTotalsDownloadLinks").style.display = 'block';
 				/// AJAX code to submit form
 				$.ajax ({
 					type: "GET",

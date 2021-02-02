@@ -5,7 +5,7 @@ class GamesController extends AppController {
 
 	public function beforeFilter() {
 		parent::beforeFilter();
-		$this->Auth->allow('shortoverview', 'overview', 'changes', 'forpasseurke');
+		$this->Auth->allow('shortoverview', 'overview', 'changes', 'homeoverview', 'forpasseurke');
 		//$this->Auth->deny('index');
 	}
 
@@ -324,16 +324,9 @@ class GamesController extends AppController {
 			$datefrom = date("Y-m-d", $datestart);
 			$dateto   = date("Y-m-d", strtotime('next monday', $datestart)-1);
 		}
-		$this->set('period', array('datefrom' => $datefrom, 'dateto' => $dateto));
-
-		/// NO MORE UNBINDING - "containable" is the new and better "unbunding"
-		/// Unbinding vastly reduces the recursion effect (I need recursive=2 for the names of the coaches)
-		//$this->Game->Team->unbindModel(array('hasMany' => array('Game', 'Training', 'Trainingmomentsteam', 'Teammember'), 'belongsTo' => array('Picture')));
-		//$this->Game->unbindModel(array('hasMany' => array('Gamesteammember')));
-
 		$fields = array(
 									'Game.game_code', 'Game.game_change', 'Game.day_of_week', 'Game.game_date', 'Game.game_time',
-									'Game.game_home', 'Game.game_away', 'Game.remark'
+									'Game.game_home', 'Game.game_away', 'Game.game_referee', 'Game.remark'
 								);
 		$baseconditions = array('Game.game_date >=' => $datefrom, 'Game.game_date <=' => $dateto);
 		$order = array('Game.game_date', 'Game.game_time', 'Game.team_id');
@@ -353,49 +346,33 @@ class GamesController extends AppController {
         )
     );
 		if ($category == 'all') {
-			//$thegames = $this->Game->find('all', array('conditions' => array('Game.game_date >=' => $datefrom, 'Game.game_date <=' => $dateto), 'recursive' => 2, 'order' => array('Game.game_date', 'Game.game_time', 'Game.team_id')));
-			//$teaminfo = array('Team' => array('name' => 'allemaal', 'competition' => 'allemaal'));
 			$additionalconditions = array();
 			$teaminfo = array('Team' => array('name' => 'allemaal', 'competition' => 'allemaal'));
 		} elseif ($category == 'week') {
-			//$thegames = $this->Game->find('all', array('conditions' => array('Game.game_date >=' => $datefrom, 'Game.game_date <=' => $dateto), 'recursive' => 2, 'order' => array('Game.game_date', 'Game.game_time', 'Game.team_id')));
-			//$teaminfo = array('Team' => array('name' => 'allemaal', 'competition' => 'deze week'));
 			$additionalconditions = array();
 			$teaminfo = array('Team' => array('name' => 'allemaal', 'competition' => 'deze week'));
 		} elseif ($category == 'beker') {
-			//$thegames = $this->Game->find('all', array('conditions' => array('Game.game_date >=' => $datefrom, 'Game.game_date <=' => $dateto, 'Game.game_code' => 'beker'), 'recursive' => 2, 'order' => array('Game.game_date', 'Game.game_time', 'Game.team_id')));
-			//$teaminfo = array('Team' => array('name' => 'allemaal', 'competition' => 'beker'));
 			$additionalconditions = array('Game.game_code' => 'beker');
 			$teaminfo = array('Team' => array('name' => 'allemaal', 'competition' => 'beker'));
 		} elseif ($category == 'jeugd') {
-			//$thegames = $this->Game->find('all', array('conditions' => array('Game.game_date >=' => $datefrom, 'Game.game_date <=' => $dateto, 'Team.gender' => array('meisjes', 'jongens', 'gemengd')), 'recursive' => 2, 'order' => array('Game.game_date', 'Game.game_time', 'Game.team_id')));
-			//$teaminfo = array('Team' => array('name' => 'jeugd', 'competition' => 'allemaal'));
 			$additionalconditions = array('Team.gender' => array('meisjes', 'jongens', 'gemengd'));
 			$teaminfo = array('Team' => array('name' => 'jeugd', 'competition' => 'allemaal'));
 		} elseif ($category == 'seniors') {
-			//$thegames = $this->Game->find('all', array('conditions' => array('Game.game_date >=' => $datefrom, 'Game.game_date <=' => $dateto, 'Team.category' => 'Seniors'), 'recursive' => 2, 'order' => array('Game.game_date', 'Game.game_time', 'Game.team_id')));
-			//$teaminfo = array('Team' => array('name' => 'seniors', 'competition' => 'allemaal'));
 			$additionalconditions = array('Team.category' => 'Seniors');
 			$teaminfo = array('Team' => array('name' => 'seniors', 'competition' => 'allemaal'));
 		} elseif ($category == 'jeugdbeker') {
-			//$thegames = $this->Game->find('all', array('conditions' => array('Game.game_date >=' => $datefrom, 'Game.game_date <=' => $dateto, 'Team.gender' => array('meisjes', 'jongens', 'gemengd'), 'Game.game_code' => 'beker'), 'recursive' => 2, 'order' => array('Game.game_date', 'Game.game_time', 'Game.team_id')));
-			//$teaminfo = array('Team' => array('name' => 'jeugd', 'competition' => 'beker'));
 			$additionalconditions = array('Team.gender' => array('meisjes', 'jongens', 'gemengd'), 'Game.game_code' => 'beker');
 			$teaminfo = array('Team' => array('name' => 'jeugd', 'competition' => 'beker'));
 		} elseif ($category == 'seniorsbeker') {
-			//$thegames = $this->Game->find('all', array('conditions' => array('Game.game_date >=' => $datefrom, 'Game.game_date <=' => $dateto, 'Team.category' => 'Seniors', 'Game.game_code' => 'beker'), 'recursive' => 2, 'order' => array('Game.game_date', 'Game.game_time', 'Game.team_id')));
-			//$teaminfo = array('Team' => array('name' => 'jeugd', 'competition' => 'beker'));
 			$additionalconditions = array('Team.category' => 'Seniors', 'Game.game_code' => 'beker');
 			$teaminfo = array('Team' => array('name' => 'seniors', 'competition' => 'beker'));
 		} elseif ($category == 'thuis') {
-			//$thegames = $this->Game->find('all', array('conditions' => array('Game.game_date >=' => $datefrom, 'Game.game_date <=' => $dateto, 'Game.home_game' => 1), 'recursive' => 2, 'order' => array('Game.game_date', 'Game.game_time', 'Game.team_id')));
-			//$teaminfo = array('Team' => array('name' => 'allemaal', 'competition' => 'alle thuiswedstrijden'));
 			$additionalconditions = array('Game.home_game' => 1);
 			$teaminfo = array('Team' => array('name' => 'allemaal', 'competition' => 'alle thuiswedstrijden'));
+		} elseif ($category == 'jeugdthuis') {
+			$additionalconditions = array('Team.gender' => array('meisjes', 'jongens', 'gemengd'), 'Game.home_game' => 1);
+			$teaminfo = array('Team' => array('name' => 'jeugd', 'competition' => 'thuiswedstrijden'));
 		} else {
-			//$thegames = $this->Game->find('all', array('conditions' => array('Game.team_id' => $category, 'Game.game_date >=' => $datefrom, 'Game.game_date <=' => $dateto), 'recursive' => 2, 'order' => array('Game.game_date', 'Game.game_time')));
-			//$this->loadModel('Team');
-			//$teaminfo = $this->Team->find('first', array('conditions' => array('Team.id' => $category), 'recursive' => -1, 'fields' => array('id', 'name', 'competition')));
 			$additionalconditions = array('Game.team_id' => $category);
 			$this->loadModel('Team');
 			$teaminfo = $this->Team->find('first', array('conditions' => array('Team.id' => $category), 'recursive' => -1, 'fields' => array('id', 'name', 'competition')));
@@ -404,6 +381,92 @@ class GamesController extends AppController {
 		$thegames = $this->Game->find('all', array('fields' => $fields, 'contain' => $contain, 'conditions' => $allconditions, 'order' => $order));
 		$this->set('team', $teaminfo);
 		$this->set('games', $thegames);
+		$report_meta = array(
+				'category' => $category,
+				'period' => array('datefrom' => $datefrom, 'dateto' => $dateto)
+		);
+		$this->set('report_meta', $report_meta);
+	}
+
+
+	public function homeoverview($category = null, $datefrom = null, $dateto = null, $style = null) {
+		if ($this->loggedIn) {
+			/// Do not change the default
+		} else {
+			if (!$style) {
+				/// Do not change the default
+				$this->layout = 'default-wide';
+			} else {
+				$this->layout = $style;
+			}
+		}
+		$this->set('weekd', array('Ma', 'Di', 'Wo', 'Do', 'Vr', 'Za', 'Zo'));
+		if (!$datefrom) $datefrom = $this->currentYears[0].'-08-01';
+		if (!$dateto)   $dateto   = $this->currentYears[1].'-07-31';
+		if ($category == 'week') {
+			$datestart = strtotime('Monday this week');
+			$datefrom = date("Y-m-d", $datestart);
+			$dateto   = date("Y-m-d", strtotime('next monday', $datestart)-1);
+		}
+		$fields = array(
+									'Game.game_code', 'Game.game_change', 'Game.day_of_week', 'Game.game_date', 'Game.game_time',
+									'Game.game_home', 'Game.game_away', 'Game.game_referee', 'Game.remark'
+								);
+		$baseconditions = array('Game.home_game' => 1, 'Game.game_date >=' => $datefrom, 'Game.game_date <=' => $dateto);
+		$order = array('Game.game_date', 'Game.game_time', 'Game.team_id');
+		/// Containable (like unbind) also vastly reduces the recursion effect (I need Game->GamesTeammember->Teammember->Member['name'])
+		/// Plus it facilitates the fetching of only the wanted fields in associated models
+		/// Containable magic
+		$this->Game->Behaviors->load('Containable');
+		$contain = array(
+        'Team' => array(
+            'fields' => array('id', 'name', 'shortname', 'mininame')
+        ),
+        'Coach' => array(
+					'fields' => array('id', 'member_id'),
+					'Member' => array(
+						'fields' => array('id', 'firstname', 'lastname', 'name')
+					)
+        )
+    );
+		if ($category == 'all') {
+			$additionalconditions = array();
+			$teaminfo = array('Team' => array('name' => 'allemaal', 'competition' => 'allemaal'));
+		} elseif ($category == 'week') {
+			$additionalconditions = array();
+			$teaminfo = array('Team' => array('name' => 'allemaal', 'competition' => 'deze week'));
+		} elseif ($category == 'beker') {
+			$additionalconditions = array('Game.game_code' => 'beker');
+			$teaminfo = array('Team' => array('name' => 'allemaal', 'competition' => 'beker'));
+		} elseif ($category == 'jeugd') {
+			$additionalconditions = array('Team.gender' => array('meisjes', 'jongens', 'gemengd'));
+			$teaminfo = array('Team' => array('name' => 'jeugd', 'competition' => 'allemaal'));
+		} elseif ($category == 'seniors') {
+			$additionalconditions = array('Team.category' => 'Seniors');
+			$teaminfo = array('Team' => array('name' => 'seniors', 'competition' => 'allemaal'));
+		} elseif ($category == 'jeugdcompetitie') {
+			$additionalconditions = array('Team.gender' => array('meisjes', 'jongens', 'gemengd'), 'Game.game_code' => 'competitie');
+			$teaminfo = array('Team' => array('name' => 'jeugd', 'competition' => 'competitie'));
+		} elseif ($category == 'jeugdbeker') {
+			$additionalconditions = array('Team.gender' => array('meisjes', 'jongens', 'gemengd'), 'Game.game_code' => 'beker');
+			$teaminfo = array('Team' => array('name' => 'jeugd', 'competition' => 'beker'));
+		} elseif ($category == 'seniorsbeker') {
+			$additionalconditions = array('Team.category' => 'Seniors', 'Game.game_code' => 'beker');
+			$teaminfo = array('Team' => array('name' => 'seniors', 'competition' => 'beker'));
+		} else {
+			$additionalconditions = array('Game.team_id' => $category);
+			$this->loadModel('Team');
+			$teaminfo = $this->Team->find('first', array('conditions' => array('Team.id' => $category), 'recursive' => -1, 'fields' => array('id', 'name', 'competition')));
+		}
+		$allconditions = array_merge($baseconditions, $additionalconditions);
+		$thegames = $this->Game->find('all', array('fields' => $fields, 'contain' => $contain, 'conditions' => $allconditions, 'order' => $order));
+		$this->set('team', $teaminfo);
+		$this->set('games', $thegames);
+		$report_meta = array(
+				'category' => $category,
+				'period' => array('datefrom' => $datefrom, 'dateto' => $dateto)
+		);
+		$this->set('report_meta', $report_meta);
 	}
 
 

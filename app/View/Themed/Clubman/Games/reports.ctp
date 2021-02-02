@@ -13,9 +13,13 @@
 <br/>
 <?= $this->Html->link('Alle jeugd bekerwedstrijden', array('controller' => 'games', 'action' => 'shortoverview', 'jeugdbeker')); ?>
 <br/>
+<?= $this->Html->link('Alle jeugd thuiswedstrijden', array('controller' => 'games', 'action' => 'homeoverview', 'jeugd')); ?>
+<br/>
 <?= $this->Html->link('Alle seniors wedstrijden', array('controller' => 'games', 'action' => 'shortoverview', 'seniors')); ?>
 <br/>
 <?= $this->Html->link('Alle seniors bekerwedstrijden', array('controller' => 'games', 'action' => 'shortoverview', 'seniorsbeker')); ?>
+<br/>
+<?= $this->Html->link('Alle seniors thuiswedstrijden', array('controller' => 'games', 'action' => 'homeoverview', 'seniors')); ?>
 <br/>
 
 <hr/>

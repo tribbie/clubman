@@ -27,7 +27,7 @@
           <?php endif; ?>
         </tr>
         <?php foreach ($events as $event) : ?>
-          <tr>
+          <tr id="event-<?=$event['Event']['title']?>">
             <td><?=$this->Html->link($event['Event']['title'], array('controller' => 'events', 'action' => 'view', $event['Event']['name'], $event['Event']['year']), array('class' => 'boldlink'))?></td>
             <td class="text-right"><?=$event['Event']['event_date_start_nice']?></td>
             <td class="text-right"><?=$event['Event']['event_date_end_nice']?></td>

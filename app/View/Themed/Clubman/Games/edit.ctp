@@ -107,7 +107,7 @@
 			<div class="form-group">
 				<label class="col-sm-3 control-label">Wijziging</label>
 				<div class="col-sm-6">
-					<?=$this->Form->input('game_change', array('label' => false, 'div' => false, 'class' => 'form-control', 'title' => 'Wat is de wijziging', 'type' => 'select', 'options' => $game_changes, 'empty' => true, 'required' => true))?>
+					<?=$this->Form->input('game_change', array('label' => false, 'div' => false, 'class' => 'form-control', 'title' => 'Wat is de wijziging', 'type' => 'select', 'options' => $game_changes, 'empty' => true))?>
 				</div>
 			</div>
 

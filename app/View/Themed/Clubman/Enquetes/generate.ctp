@@ -11,8 +11,13 @@
 		</p>
 		<p>
 			Na het genereren van deze enquêtes moet de mailing nog uitgestuurd worden.<br/>
-			Dit gedeelte is momenteel nog niet beschikbaar in Clubman.<br/>
+			Dit gedeelte is momenteel nog niet helemaal proper beschikbaar in Clubman.<br/>
 		</p>
+		<ul>
+			Voorlopig moet je:
+			<li>een mailing aanmaken, en zorgen dat je in de categorie "ledenbevraging" ingeeft (check die van vorig jaar).</li>
+			<li>daarna vanuit de mailing de individuele mails aanmaken. Voor alle gegenereerde enquetes wordt zo een mail voorbereid.</li>
+		</ul>
 	</div>
 </div>
 

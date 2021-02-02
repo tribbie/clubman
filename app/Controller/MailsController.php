@@ -161,7 +161,7 @@ class MailsController extends AppController {
 		} else {
 			$this->Session->setFlash(__('Geen mail meegegeven om te verwijderen'), "flash-error");
 		}
-		$this->redirect(array('controller' => 'mails', 'action' => 'index'));
+		//$this->redirect(array('controller' => 'mails', 'action' => 'index'));
 	}
 
 

@@ -8,7 +8,7 @@
 	<table class="table table-striped table-condensed normalelijst">
 		<tr class="groupheader info">
 			<th>Naam</th>
-			<th>Locatie</th>
+			<!--<th>Locatie</th>-->
 			<!--<th>Beschrijving</th>-->
 			<th>Seizoen</th>
 			<th>Datum</th>
@@ -21,7 +21,7 @@
 		<?php foreach ($uploads as $upload) : ?>
 			<tr>
 				<td><?=$this->Html->link($upload['Upload']['name'], array('controller' => 'uploads', 'action' => 'view', $category, $upload['Upload']['id']))?></td>
-				<td><?=$upload['Upload']['location']?></td>
+				<!--<td><?=$upload['Upload']['location']?></td>-->
 				<!--<td><?=$upload['Upload']['description']?></td>-->
 				<td><?=$upload['Upload']['season']?></td>
 				<td><?=$upload['Upload']['stamp_nice']?></td>

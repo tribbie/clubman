@@ -7,13 +7,20 @@ class TeamsController extends AppController {
 	var $categories = array('Seniors'=>'Seniors', 'U19'=>'U19', 'U17'=>'U17', 'U15'=>'U15', 'U13'=>'U13', 'U11'=>'U11', 'U9'=>'U9', 'Bengels'=>'Bengels', 'Setters'=>'Setters', 'Bestuur'=>'Bestuur', 'Jeugdbestuur'=>'Jeugdbestuur', 'Andere'=>'Andere', 'Onbekend'=>'Onbekend');
 	var $genders    = array('meisjes'=>'Meisjes', 'jongens'=>'Jongens', 'dames'=>'Dames', 'heren'=>'Heren', 'gemengd'=>'Gemengd');
 	var $numbers    = array(''=>'enige team', '1'=>'Team 1', '2'=>'Team 2', '3'=>'Team 3', '4'=>'Team 4', '5'=>'Team 5');
-	var $series     = array('1ste prov'=>'1ste Prov.', '2de prov'=>'2de Prov.', '3de prov'=>'3de Prov.', '4de prov'=>'4de Prov.', '1ste div'=>'1ste Div.', '2de div'=>'2de Div.', '1ste nat'=>'1ste Nat.', 'liga a'=>'Liga A', 'liga b'=>'Liga B', 'beker' => 'Enkel beker', 'andere'=>'Andere');
+	// var $series     = array('1ste prov'=>'1ste Prov.', '2de prov'=>'2de Prov.', '3de prov'=>'3de Prov.', '4de prov'=>'4de Prov.', '1ste div'=>'1ste Div.', '2de div'=>'2de Div.', '1ste nat'=>'1ste Nat.', 'liga a'=>'Liga A', 'liga b'=>'Liga B', 'beker' => 'Enkel beker', 'andere' => 'Andere');
+	var $series     = array(
+		'liga'=>'Liga', 'nat 1'=>'Nationale 1', 'nat 2'=>'Nationale 2', 'nat 3'=>'Nationale 3',
+		'promo 1'=>'Promo 1', 'promo 2'=>'Promo 2', 'promo 3'=>'Promo 3', 'promo 4'=>'Promo 4',
+		'niveau 1'=>'Niveau 1', 'niveau 2'=>'Niveau 2', 'niveau 3'=>'Niveau 3',
+		'1ste prov'=>'1ste Prov.', '2de prov'=>'2de Prov.', '3de prov'=>'3de Prov.', '4de prov'=>'4de Prov.',
+		'beker'=>'Enkel beker', 'andere'=>'Andere'
+	);
 	var $homegames  = array('zaterdag shift 1'=>'Zaterdag shift 1', 'zaterdag shift 2'=>'Zaterdag shift 2', 'zaterdagavond'=>'Zaterdagavond', 'geen thuiswedstijden'=>'Geen thuiswedstijden', 'geen wedstijden'=>'Geen wedstijden', 'andere'=>'Andere');
 
 
 	public function beforeFilter() {
 		parent::beforeFilter();
-		$this->Auth->allow('category', 'view', 'viewold', 'calendar');
+		$this->Auth->allow('category', 'view', 'multiview', 'calendar');
 		//$this->Auth->deny('index');
 	}
 
@@ -29,12 +36,13 @@ class TeamsController extends AppController {
 			$memberteams = $this->Team->Teammember->find('list', array('conditions' => array('Teammember.member_id' => $memberid, 'Teammember.teampriority' => 0), 'fields' => array('Teammember.id', 'Teammember.team_id')));
 			$this->set('memberteams', $memberteams);
 			$this->Team->recursive = 0;
-			// The role of trainer or member will only see the teams the user belongs to
+			$teamfilter = array();
+			/// The role of trainer or member will only see the teams the user belongs to
 			if (ClubmanUtilityLib::elementsInArray($this->cmCurrentRoles, ['trainer', 'member']) > 0) {
 				$teamfilter = array('Team.id' => array_values($memberteams));
 			}
-			/// To support cumulated roles, the following can override the shortlist of a trainer
-			if (ClubmanUtilityLib::elementsInArray($this->cmCurrentRoles, ['root', 'admin', 'teamadmin', 'gameadmin']) > 0) {
+			/// To support cumulated and special roles, the following can override the shortlist of a trainer
+			if (ClubmanUtilityLib::elementsInArray($this->cmCurrentRoles, ['root', 'admin', 'teamadmin', 'gameadmin', 'memberview']) > 0) {
 				$teamfilter = array('Team.id >' => 0);
 			}
 			$teams = $this->Team->find('all', array('conditions' => $teamfilter));
@@ -59,7 +67,10 @@ class TeamsController extends AppController {
 				$catselect = array('Team.category' => array('U19', 'U17', 'U15', 'U13', 'U11', 'U9', 'Bengels'));
 				break;
 			case 'bestuur':
-				$catselect = array('Team.teamtype' => 'bestuur');
+				$catselect = array('Team.category' => 'bestuur');
+				break;
+			case 'omkadering':
+				$catselect = array('Team.teamtype' => 'omkadering');
 				break;
 			default:
 				$catselect = array('Team.teamtype <>' => 'volley');
@@ -124,6 +135,59 @@ class TeamsController extends AppController {
 			}
 		}
 		$this->set('team', $team);
+	}
+
+
+	public function multiview() {
+		$this->Team->recursive = 2;
+		$this->Team->Behaviors->load('Containable');
+		$fields = array('Team.id', 'Team.name', 'Team.shortname', 'Team.mininame', 'Team.category', 'Team.gender', 'Team.series', 'Team.teamtype', 'Team.competition', 'Team.email', 'Team.homegame');
+		$contain = array(
+				'Picture' => array(
+					'fields' => array('id', 'location'),
+				),
+				'Teammember' => array(
+					'fields' => array('id', 'member_id', 'team_id', 'teamfunction', 'teampriority', 'shirtnumber', 'remark'),
+					//'conditions' => array('season' => 'aanwezig'),
+					'order' => array('teampriority', 'shirtnumber'),
+					'Member' => array(
+						'fields' => array('id', 'firstname', 'lastname', 'name', 'email')
+					)
+				),
+				'Trainingmomentsteam' => array(
+					'fields' => array('id', 'team_id', 'remark'),
+					'Trainingmoment' => array(
+						'fields' => array('id', 'name', 'weekday', 'location', 'start_time_nice', 'end_time_nice', 'remark'),
+					),
+				),
+				'Game' => array(
+					'fields' => array('id', 'team_id', 'game_code', 'game_home', 'game_away', 'game_change', 'day_of_week', 'game_hall', 'game_date', 'game_date_nice', 'game_time_nice', 'remark'),
+					'Gamesteammember' => array(
+						'fields' => array('id'),
+					)
+				),
+				'Training' => array(
+					'fields' => array('id', 'team_id', 'start_date', 'start_date_nice', 'start_time_nice', 'end_time_nice', 'location', 'remark'),
+					'Trainingsteammember' => array(
+						'fields' => array('id'),
+					)
+				)
+    );
+		$conditions = array();
+		$order = array('Team.display_order' => 'ASC');
+		if (isset($this->params['named']['teamtype'])) {
+			$conditions['Team.teamtype'] = $this->params['named']['teamtype'];
+		}
+		if (isset($this->params['named']['category'])) {
+			$conditions['Team.category'] = $this->params['named']['category'];
+		}
+		if (empty($conditions)) {
+			$this->Session->setFlash(__('Ongeldige filter', true), "flash-error");
+			$this->redirect(array('action' => 'index'));
+		}
+		//$teams = $this->Team->find('all', array('fields' => $fields, 'contain' => $contain, 'conditions' => $conditions));
+		$this->set('teams', $this->Team->find('all', array('fields' => $fields, 'contain' => $contain, 'conditions' => $conditions, 'order' => $order)));
+		$this->set('namedparameters', $this->params['named']);
 	}
 
 
@@ -256,63 +320,65 @@ class TeamsController extends AppController {
 			}
 		}
 		$calendar = <<<HEREDOC
-BEGIN:VCALENDAR
-PRODID:-//Google Inc//Google Calendar 70.9054//EN
-VERSION:2.0
-CALSCALE:GREGORIAN
-METHOD:PUBLISH
-X-WR-CALNAME:DudeSerieusCalendar
-X-WR-RELCALID:s=calendar.test@dudeserieus.be
-X-WR-TIMEZONE:Europe/Brussels
-REFRESH-INTERVAL;VALUE=DURATION:PT4H
-X-PUBLISHED-TTL:PT4H
-BEGIN:VTIMEZONE
-TZID:Europe/Brussels
-X-LIC-LOCATION:Europe/Brussels
-BEGIN:DAYLIGHT
-TZOFFSETFROM:+0100
-TZOFFSETTO:+0200
-TZNAME:CEST
-DTSTART:19700329T020000
-RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
-END:DAYLIGHT
-BEGIN:STANDARD
-TZOFFSETFROM:+0200
-TZOFFSETTO:+0100
-TZNAME:CET
-DTSTART:19701025T030000
-RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
-END:STANDARD
-END:VTIMEZONE
-BEGIN:VEVENT
-DTSTART:20180307T160000Z
-DTEND:20180307T173000Z
-DTSTAMP:20180310T232800Z
-UID:calendar.test.item_67211@dudeserieus.be
-CREATED:20180310T232800Z
-DESCRIPTION;ENCODING=QUOTED-PRINTABLE:1PV-0001: VC WOLVERTEM - LIZARDS LUBBEEK-LEUVEN B
-LAST-MODIFIED:20180310T232800Z
-LOCATION:Sportschuur, Wolvertem Belgie
-SEQUENCE:0
-STATUS:CONFIRMED
-SUMMARY: VC Wolvertem - LIZARDS B
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
-DTSTART:20180303T163000Z
-DTEND:20180303T180000Z
-DTSTAMP:20180310T232800Z
-UID:calendar.test.item_67212@dudeserieus.be
-CREATED:20180310T232800Z
-DESCRIPTION;ENCODING=QUOTED-PRINTABLE:1PV-0002: WEVOK ST.-JORIS WEERT A - JEUGDVOLLEYBAL LONDERZEEL B
-LAST-MODIFIED:20180310T232800Z
-LOCATION:Ontmoetingscentrum, Sint-Joris-Weert, Beekstraat 13, 3051 Sint-Joris-Weert Belgie
-SEQUENCE:0
-STATUS:CONFIRMED
-SUMMARY: WEVOK ST.-JORIS WEERT A - JEUGDVOLLEYBAL LONDERZEEL B
-TRANSP:OPAQUE
-END:VEVENT
-END:VCALENDAR
+			### NOTE ### this whole heredoc should start at the beginning of the line
+			### NOTE ### the indentation is for collapsing code in the (atom) editor
+			BEGIN:VCALENDAR
+			PRODID:-//Google Inc//Google Calendar 70.9054//EN
+			VERSION:2.0
+			CALSCALE:GREGORIAN
+			METHOD:PUBLISH
+			X-WR-CALNAME:DudeSerieusCalendar
+			X-WR-RELCALID:s=calendar.test@dudeserieus.be
+			X-WR-TIMEZONE:Europe/Brussels
+			REFRESH-INTERVAL;VALUE=DURATION:PT4H
+			X-PUBLISHED-TTL:PT4H
+			BEGIN:VTIMEZONE
+			TZID:Europe/Brussels
+			X-LIC-LOCATION:Europe/Brussels
+			BEGIN:DAYLIGHT
+			TZOFFSETFROM:+0100
+			TZOFFSETTO:+0200
+			TZNAME:CEST
+			DTSTART:19700329T020000
+			RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+			END:DAYLIGHT
+			BEGIN:STANDARD
+			TZOFFSETFROM:+0200
+			TZOFFSETTO:+0100
+			TZNAME:CET
+			DTSTART:19701025T030000
+			RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+			END:STANDARD
+			END:VTIMEZONE
+			BEGIN:VEVENT
+			DTSTART:20180307T160000Z
+			DTEND:20180307T173000Z
+			DTSTAMP:20180310T232800Z
+			UID:calendar.test.item_67211@dudeserieus.be
+			CREATED:20180310T232800Z
+			DESCRIPTION;ENCODING=QUOTED-PRINTABLE:1PV-0001: VC WOLVERTEM - LIZARDS LUBBEEK-LEUVEN B
+			LAST-MODIFIED:20180310T232800Z
+			LOCATION:Sportschuur, Wolvertem Belgie
+			SEQUENCE:0
+			STATUS:CONFIRMED
+			SUMMARY: VC Wolvertem - LIZARDS B
+			TRANSP:OPAQUE
+			END:VEVENT
+			BEGIN:VEVENT
+			DTSTART:20180303T163000Z
+			DTEND:20180303T180000Z
+			DTSTAMP:20180310T232800Z
+			UID:calendar.test.item_67212@dudeserieus.be
+			CREATED:20180310T232800Z
+			DESCRIPTION;ENCODING=QUOTED-PRINTABLE:1PV-0002: WEVOK ST.-JORIS WEERT A - JEUGDVOLLEYBAL LONDERZEEL B
+			LAST-MODIFIED:20180310T232800Z
+			LOCATION:Ontmoetingscentrum, Sint-Joris-Weert, Beekstraat 13, 3051 Sint-Joris-Weert Belgie
+			SEQUENCE:0
+			STATUS:CONFIRMED
+			SUMMARY: WEVOK ST.-JORIS WEERT A - JEUGDVOLLEYBAL LONDERZEEL B
+			TRANSP:OPAQUE
+			END:VEVENT
+			END:VCALENDAR
 HEREDOC;
 		echo $calendar; die;
 	}

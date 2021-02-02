@@ -1,5 +1,5 @@
 <!-- app/View/Members/filter.ctp -->
-<h2><?=(isset($cmclub['shortname']) ? $cmclub['shortname'] : 'Clubman')?> leden: <?=(count($memberfilter['label'] > 0) ? implode(',', $memberfilter['label']) : 'geen filter')?></h2>
+<h2><?=(isset($cmclub['shortname']) ? $cmclub['shortname'] : 'Clubman')?> leden: <?=((count($memberfilter['label']) > 0) ? implode(',', $memberfilter['label']) : 'geen filter')?></h2>
 
 <div class="row">
 	<div class="col-xs-12">
@@ -36,4 +36,5 @@
 <?php
 // pr($filters);
 // pr($members);
+// pr($memberfilter);
 ?>
