@@ -81,13 +81,19 @@ Next, let's configure the CakePHP security configuration.
 
 Make sure you have an (empty) database (mySQL/MariaDB are tested).
 
-    create database clubman
+    CREATE DATABASE clubmandb;
+
+Make sure you have a database user and password and permissions.
+
+    SHOW GRANTS FOR 'clubmandbuser'@'clubmandbhost';
+    CREATE USER 'clubmandbuser'@'clubmandbhost' IDENTIFIED BY 'clubmandbpassword';
+    GRANT ALL PRIVILEGES ON `clubmandb`.* TO `clubmandbuser`@`clubmandbhost`;
 
 Initialize the database.  
 **WARNING: TABLES WILL BE DROP-CREATED!**
 
     cd clubman/app/Config/Schema
-    mysql --user=your-db-user --password --database=your-database <clubman_schema_YYYYMMDD.sql
+    mysql --user=clubmandbuser --password --database=clubmandb <clubman_schema_YYYYMMDD.sql
 
 Configure the `$default` connection in the database.php file.
 
