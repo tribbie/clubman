@@ -87,7 +87,7 @@ Make sure you have a database user and password and permissions.
 
     SHOW GRANTS FOR 'clubmandbuser'@'clubmandbhost';
     CREATE USER 'clubmandbuser'@'clubmandbhost' IDENTIFIED BY 'clubmandbpassword';
-    GRANT ALL PRIVILEGES ON `clubmandb`.* TO `clubmandbuser`@`clubmandbhost`;
+    GRANT ALL PRIVILEGES ON 'clubmandb'.* TO 'clubmandbuser'@'clubmandbhost';
 
 Initialize the database.  
 **WARNING: TABLES WILL BE DROP-CREATED!**
