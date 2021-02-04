@@ -21,7 +21,7 @@ $config['Club'] = [
             //'database'  => 'default',
           ],
           'clubweb' => [
-            'home'           => '/clubman-home',
+            'home'           => '/clubweb-home',
             'theme'          => 'Clubweb-Basic',
             'bootstraptheme' => 'https://maxcdn.bootstrapcdn.com/bootswatch/3.4.1/spacelab/bootstrap.min.css'
           ],
