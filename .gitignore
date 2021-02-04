@@ -27,6 +27,8 @@ index.php
 
 /app/Config/clubman/club.php
 /app/Config/clubman/club_partial_config.php
+/app/Config/clubman/clubman_complete_config.php
+/app/Config/clubman/clubman_partial_config.php
 /app/Config/clubman/clubman.php
 /app/Config/clubman/menuman.php
 /app/Config/clubman/menuweb.php
