@@ -86,7 +86,7 @@ Make sure you have an (empty) database (mySQL/MariaDB are tested).
 Make sure you have a database user and password and permissions.
 
     SHOW GRANTS FOR `clubmandbuser`@`clubmandbhost`;
-    CREATE USER `clubmandbuser`@`clubmandbhost` IDENTIFIED BY `clubmandbpassword`;
+    CREATE USER `clubmandbuser`@`clubmandbhost` IDENTIFIED BY 'clubmandbpassword';
     GRANT ALL PRIVILEGES ON `clubmandb`.* TO `clubmandbuser`@`clubmandbhost`;
 
 Initialize the database.  
