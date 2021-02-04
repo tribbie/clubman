@@ -23,6 +23,15 @@ index.php
 /app/Config/email.php
 /app/Config/email.php.default
 /app/Config/routes.php
+/app/Config/routes.php.default
+
+/app/Config/clubman/club.php
+/app/Config/clubman/club_partial_config.php
+/app/Config/clubman/clubman.php
+/app/Config/clubman/menuman.php
+/app/Config/clubman/menuweb.php
+/app/Config/clubman/permissions.php
+
 /app/Config/Schema/db_acl.php
 /app/Config/Schema/db_acl.sql
 /app/Config/Schema/i18n.php
@@ -36,6 +45,11 @@ index.php
 /app/Test/
 /app/Vendor/
 /app/tmp/
+/app/webroot/files/uploads/
+/app/webroot/img/member/
+/app/webroot/img/memberid/
+/app/webroot/img/team/
+
 
 /app/**/empty
 
