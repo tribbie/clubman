@@ -30,12 +30,14 @@ index.php
 /app/Config/Schema/sessions.php
 /app/Config/Schema/sessions.sql
 
-/app/Console/**
-/app/Locale/**
-/app/Plugin/**
-/app/Test/**
-/app/Vendor/**
-/app/tmp/**
+/app/Console/
+/app/Locale/
+/app/Plugin/
+/app/Test/
+/app/Vendor/
+/app/tmp/
+
+/app/**/empty
 
 /lib/**
 /plugins/**
