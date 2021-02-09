@@ -38,7 +38,7 @@ Retrieve the Markdown CakePHP plugin through GitHub into the *appclubman* direct
 This plugin is used to show content that is saved as MarkDown.
 
     cd clubman
-    git clone git://github.com/maurymmarques/markdown-cakephp.git ./appclubman/app/Plugin/Markdown
+    git clone git://github.com/maurymmarques/markdown-cakephp.git ./appclubman/Plugin/Markdown
 
 ### merge Clubman app into CakePHP app directory
 

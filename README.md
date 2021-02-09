@@ -17,6 +17,11 @@ High level
   - news
   - events
 
+Get started
+===========
+
+- check [installation doc](installation.md)
+
 Contributors
 ============
 
