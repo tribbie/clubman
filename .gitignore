@@ -17,19 +17,19 @@
 /Config/clubman/clubman_complete_config.php
 /Config/clubman/clubman_partial_config.php
 
+## directories that (might) get filled
 /Console/
 /Plugin/*
 /Test/
 /Vendor/
-/tmp/cache/
-/tmp/logs/
-/tmp/sessions/
+/tmp/**
+!/tmp/**/
 /webroot/files/uploads/
 /webroot/img/member/
 /webroot/img/memberid/
 /webroot/img/team/
 
-!/*/.gitkeep
+!**/.gitkeep
 
 # OS generated files #
 ######################
