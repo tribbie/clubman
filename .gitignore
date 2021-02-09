@@ -1,6 +1,6 @@
 # CakePHP files that are not touched by Clubman #
 #################################################
-.htaccess
+#.htaccess
 .editorconfig
 .stickler.yml
 .travis.yml
