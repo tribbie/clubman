@@ -1,28 +1,29 @@
-#.htaccess
-#index.php
-
-/Config/acl.ini.php
-/Config/acl.php
+## provided by *.clubman versions
 /Config/bootstrap.php
 /Config/core.php
 /Config/database.php
 /Config/email.php
 /Config/routes.php
 
+## provided by *-default.php versions
 /Config/clubman/club.php
-/Config/clubman/club_partial_config.php
-/Config/clubman/clubman_complete_config.php
-/Config/clubman/clubman_partial_config.php
 /Config/clubman/clubman.php
 /Config/clubman/menuman.php
 /Config/clubman/menuweb.php
 /Config/clubman/permissions.php
 
+## test/generated files
+/Config/clubman/club_partial_config.php
+/Config/clubman/clubman_complete_config.php
+/Config/clubman/clubman_partial_config.php
+
 /Console/
 /Plugin/*
 /Test/
 /Vendor/
-/tmp/*
+/tmp/cache/
+/tmp/logs/
+/tmp/sessions/
 /webroot/files/uploads/
 /webroot/img/member/
 /webroot/img/memberid/

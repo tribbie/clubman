@@ -10,11 +10,13 @@ I have tested this Clubman app with CakePHP v2.10.22.
 
 This repo contains my Clubman application, which goes into the CakePHP `/app` directory. Because CakePHP also has stuff in the `/app` directory, I cannot `git clone` my Clubman app directly into the CakePHP `/app` directory. Therefor, this installation is accomplished by retrieving the repos separately, and then merging them using the `rsync` command.
 
+
 ### prepare
 
 Create your *clubman* base project directory if needed.
 
     mkdir clubman
+
 
 ### get CakePHP
 
@@ -25,34 +27,42 @@ Retrieve CakePHP v2.x through GitHub into your *clubman* base directory.
 
 [you might now want to consider removing the CakePHP .git directory]
 
+
+### remove the complete CakePHP app directory
+
+Since our Clubman app will replace the CakePHP app directory, we no longer need the CakePHP one.  
+When afraid, you could also rename the app directory in something like appOriginalCake
+
+For the brave:
+    cd clubman
+    rm -rf ./app/*
+
+For the not so brave:
+    cd clubman
+    mv app appOriginalCake
+
+
 ### get Clubman app
 
-Retrieve this Clubman CakePHP app through GitHub into a separate *appclubman* subdirectory (for now).
+Retrieve this Clubman CakePHP app through GitHub into the *app* subdirectory.
 
     cd clubman
-    git clone https://github.com/tribbie/clubman.git ./appclubman
+    git clone https://github.com/tribbie/clubman.git ./app
+
 
 ### get Markdown plugin
 
-Retrieve the Markdown CakePHP plugin through GitHub into the *appclubman* directory structure.
+Retrieve the Markdown CakePHP plugin through GitHub into the *app* directory structure.
 This plugin is used to show content that is saved as MarkDown.
 
     cd clubman
-    git clone git://github.com/maurymmarques/markdown-cakephp.git ./appclubman/Plugin/Markdown
-
-### merge Clubman app into CakePHP app directory
-
-Now, merge the Clubman app into the CakePHP `/app` directory.
-
-    cd clubman
-    rsync -av --remove-source-files ./appclubman/app/ ./app/
-
-You can now check (it should not contain files) and then remove (it is no longer needed) the *appclubman* directory.
+    git clone git://github.com/maurymmarques/markdown-cakephp.git ./app/Plugin/Markdown
 
 
 ## Configuration
 
-Now all files are downloaded and merged, let's start configuring Clubman.
+Now that our Clubman app has been put into the CakePHP framework, let's start configuring Clubman.
+
 
 ### activate CakePHP config files
 

@@ -27,7 +27,7 @@ class DATABASE_CONFIG {
 		'host' => 'localhost',
 		'login' => 'clubmandbuser',
 		'password' => 'clubmandbpassword',
-		'database' => 'clubman',
+		'database' => 'clubmandb',
 		'prefix' => 'cm_',
 		'encoding' => 'utf8',
 	);
