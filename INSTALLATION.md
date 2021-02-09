@@ -2,7 +2,7 @@ Clubman installation
 ====================
 
 This version of Clubman is developed as a CakePHP v2 application.  
-I have tested this Clubman app with CakePHP v2.10.22.  
+I have tested this Clubman app with CakePHP v2.10.24.  
 [CakePHP v2.x Cookbook](https://book.cakephp.org/2/en/index.html)
 
 
@@ -28,7 +28,7 @@ Retrieve CakePHP v2.x through GitHub into your *clubman* base directory.
 [you might now want to consider removing the CakePHP .git directory]
 
 
-### remove the complete CakePHP app directory
+### remove the *example* CakePHP app directory
 
 Since our Clubman app will replace the CakePHP app directory, we no longer need the CakePHP one.  
 When afraid, you could also rename the app directory in something like appOriginalCake
@@ -36,12 +36,12 @@ When afraid, you could also rename the app directory in something like appOrigin
 For the brave:
 
     cd clubman
-    rm -rf ./app/*
+    rm -rf ./app
 
 For the not so brave:
 
     cd clubman
-    mv app appOriginalCake
+    mv ./app ./appOriginalCake
 
 
 ### get Clubman app
