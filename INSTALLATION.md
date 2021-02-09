@@ -34,10 +34,12 @@ Since our Clubman app will replace the CakePHP app directory, we no longer need 
 When afraid, you could also rename the app directory in something like appOriginalCake
 
 For the brave:
+
     cd clubman
     rm -rf ./app/*
 
 For the not so brave:
+
     cd clubman
     mv app appOriginalCake
 
