@@ -20,7 +20,7 @@ High level
 Get started
 ===========
 
-- check [installation doc](installation.md)
+- check [installation doc](INSTALLATION.md)
 
 Contributors
 ============
