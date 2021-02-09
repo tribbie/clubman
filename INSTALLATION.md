@@ -55,7 +55,7 @@ Retrieve this Clubman CakePHP app through GitHub into the *app* subdirectory.
 ### get Markdown plugin
 
 Retrieve the Markdown CakePHP plugin through GitHub into the *app* directory structure.
-This plugin is used to show content that is saved as MarkDown.
+This plugin is used to show content that is saved as Markdown.
 
     cd clubman
     git clone git://github.com/maurymmarques/markdown-cakephp.git ./app/Plugin/Markdown
