@@ -5,7 +5,7 @@
 <hr/>
 
 <h2>HELP shizzle</h2>
-<?=$this->Html->link('clubman_nieuw_seizoen_2017', array('controller' => 'pages', 'action' => 'help', 'clubman_nieuw_seizoen_2017'), array('title' => 'clubman_nieuw_seizoen_2017'))?><br/>
+<?=$this->Html->link('clubman_nieuw_seizoen_2018', array('controller' => 'pages', 'action' => 'help', 'clubman_nieuw_seizoen_2018'), array('title' => 'clubman nieuw seizoen'))?><br/>
 <?=$this->Html->link('database', array('controller' => 'pages', 'action' => 'help', 'database'), array('title' => 'database'))?><br/>
 <?=$this->Html->link('games_tasks (referees and stuff)', array('controller' => 'pages', 'action' => 'help', 'games_tasks'), array('title' => 'games_tasks'))?><br/>
 <?=$this->Html->link('mailing_enquete_2018', array('controller' => 'pages', 'action' => 'help', 'mailing_enquete_2018'), array('title' => 'mailing_enquete_2018'))?><br/>

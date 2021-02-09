@@ -22,20 +22,20 @@ data => BLOB (64KB) - MEDIUMBLOB (16MB) - LONGBLOB (4GB)
 MODEL (app/models/file.php)
 ===========================
 
-class File extends AppModel 
+class File extends AppModel
 {
 	var $name = 'File';
 }
 
 VIEW (app/views/files/add.ctp)
 ==============================
-
+</pre>
 <form action="/files/add" enctype="multipart/form-data" method="post">
-    <?php echo $html->file('File'); ?>
-    <?php echo $html->submit('Upload'); ?>
+    <?php echo $this->Html->file('File'); ?>
+    <?php echo $this->Html->submit('Upload'); ?>
 </form>
 
-
+<pre>
 CONTROLLER (app/controllers/files_controller.php)
 =================================================
 

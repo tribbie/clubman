@@ -1,0 +1,19 @@
+body {
+ font-family: "Verdana", "Lucida Sans Unicode", "Sans-serif";
+}
+
+a.clubman-boldlink {
+ font-weight: bold;
+}
+
+a.clubman-boldlink:hover {
+ text-decoration: none;
+}
+
+div.clubman-form {
+    margin-bottom: 10px;
+}
+
+.afgelast {
+ text-decoration: line-through;
+}

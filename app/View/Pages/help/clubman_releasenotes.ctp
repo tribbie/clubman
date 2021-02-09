@@ -1,4 +1,5 @@
-<h1>De Clubman mysql database</h1>
+<h1>De VCW mysql database</h1>
+<br>
 
 <script>
 function showhide(id) {
@@ -13,33 +14,17 @@ function showhide(id) {
 }
 </script>
 
-<hr/>
-
-<h3>Backing up</h3>
-<pre>
-mysqldump --print-defaults
-mysqldump --host=host --user=user --password --no-create-db --no-create-info --replace database_name --result-file=file_name
-mysqldump --host=host --user=user --password --add-drop-database --add-drop-table database_name > backup.sql
-
-mysqldump --user=clubmanuser --password clubman > clubman_all_yyyymmdd.sql
-mysqldump --user=clubmanuser --password --no-data clubman > clubman_structure_only_yyyymmdd.sql
-mysqldump --user=clubmanuser --password --no-create-info clubman > clubman_structure_only_yyyymmdd.sql
-mysqldump --user=clubmanuser --password --no-create-info clubman cm_users > clubman_default_users_yyyymmdd.sql
-</pre>
-
-<h3>Restoring</h3>
-<pre>
-mysql --host=host --user=user --password database_name < data.sql
-mysql --user=clubmanuser --password clubmandb < clubman_structure_only_yyyymmdd.sql
-</pre>
-
-<hr/>
-
-<h3>Andere nuttige MySQL statements en procedures ...</h3>
+<br/>
+Nuttige MySQL statements en procedures ...<br/>
 <br/>
 
-<a href="#" title="update teamleden" onclick="showhide('item01'); return(false)">*** Aanpassen teamleden</a><br/>
-<div style='display: none;' id='item01'>
+<hr/>
+<hr/>
+
+<br/>
+
+<a href="#" title="Version 0.5" onclick="showhide('rel05'); return(false)">Clubman v0.5 - Release for season 2016-2017</a>
+<div style='display: none;' id='rel05'>
 <div class='coolinfobox'>
 verversen leden in vcw_members<br/>
 <?php echo $this->Html->link('vcw_members_refresh', array('controller' => 'pages', 'action' => 'vcw_members_refresh'));?>
@@ -431,6 +416,9 @@ Tables leeg te maken voor nieuw seizoen ...
 </div>
 <br/>
 
+
+
+<hr/>
 <hr/>
 
 <br/>
@@ -460,4 +448,6 @@ LOAD DATA INFILE '/var/www/doorgeef/vcw_database/vanMarleen/import_persons.csv'
 </div>
 <br/>
 
+
+<hr/>
 <hr/>

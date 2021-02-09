@@ -1,6 +1,19 @@
 <!-- app/View/Elements/member-form-general.ctp -->
 <h3>Algemeen</h3>
 
+<div class="form-group">
+	<label class="col-sm-3 control-label">Achternaam</label>
+	<div class="col-sm-6">
+		<?=$this->Form->input('lastname', array('label' => false, 'div' => false, 'class' => 'form-control', 'id' => 'focusme', 'required' => true))?>
+	</div>
+</div>
+
+<div class="form-group">
+	<label class="col-sm-3 control-label">Voornaam</label>
+	<div class="col-sm-6">
+		<?=$this->Form->input('firstname', array('label' => false, 'div' => false, 'class' => 'form-control', 'required' => true))?>
+	</div>
+</div>
 
 <div class="form-group">
 	<label class="col-sm-3 control-label">Geboortedatum</label>
