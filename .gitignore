@@ -24,10 +24,20 @@
 /Vendor/
 /tmp/**
 !/tmp/**/
-/webroot/files/uploads/
-/webroot/img/member/
-/webroot/img/memberid/
-/webroot/img/team/
+#/webroot/files/uploads/*
+/webroot/files/uploads/andere/*
+/webroot/files/uploads/csv/*
+/webroot/files/uploads/evenement/*
+/webroot/files/uploads/game/*
+/webroot/files/uploads/kamp/*
+/webroot/files/uploads/magazine/*
+/webroot/files/uploads/nieuws/*
+/webroot/files/uploads/pers/*
+/webroot/files/uploads/picture/*
+/webroot/files/uploads/training/*
+/webroot/img/member/*
+/webroot/img/memberid/*
+/webroot/img/team/*
 
 !**/.gitkeep
 
