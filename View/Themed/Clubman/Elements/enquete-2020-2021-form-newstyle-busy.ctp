@@ -1,4 +1,4 @@
-<!-- app/View/Elements/enquete-2019-2020-form.ctp -->
+<!-- app/View/Elements/enquete-2020-2021-form.ctp -->
 <h1>Formulier voor <?=$this->request->data['Enquete']['algemeen_naam'];?></h1>
 
 <!-- open the form -->
@@ -35,7 +35,7 @@
       </ul>
       Ook zullen niet alle vragen even relevant zijn voor iedereen.<br/>
       <br/>
-      Graag hadden we de ingevulde vragenlijst terug ten laatste op <strong>zondag 17 maart 2019</strong>.<br/>
+      Graag hadden we de ingevulde vragenlijst terug ten laatste op <strong>zondag 17 maart 2021</strong>.<br/>
       <br/>
       Alvast hartelijk bedankt voor je medewerking!<br/>
       <br/>

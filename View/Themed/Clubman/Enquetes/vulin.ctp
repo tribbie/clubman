@@ -6,16 +6,20 @@
 
 <?php else : ?>
 
-	<?php if ($this->request->data['Enquete']['id'] == '00000000000000000000002015201600') : ?>
+	<?php if (strpos($this->request->data['Enquete']['algemeen_naam'], 'AAA') == 0) : ?>
 		<!-- Volgende stuk is volgens mij niet meer relevant -->
-		<div style="background: red;" class="alert alert-danger" role="alert">SPECIMEN -- ENKEL OM TE BEKIJKEN</div>
-		<div style="background: red;" class="alert alert-danger" role="alert">SPECIMEN -- NIET BEWAREN AUB</div>
+		<div class="panel panel-danger">
+		  <div class="panel-heading">SPECIMEN</div>
+		  <div class="panel-body">ENKEL OM TE BEKIJKEN / TESTEN</div>
+		</div>
 
 		<?php $enqueteElement = 'enquete-'.$enqueteSeason.'-form'; ?>
 		<?=$this->element($enqueteElement);?>
 
-		<div style="background: red;" class="alert alert-danger" role="alert">SPECIMEN -- ENKEL OM TE BEKIJKEN</div>
-		<div style="background: red;" class="alert alert-danger" role="alert">SPECIMEN -- NIET BEWAREN AUB</div>
+		<div class="panel panel-danger">
+		  <div class="panel-heading">SPECIMEN</div>
+		  <div class="panel-body">ENKEL OM TE BEKIJKEN / TESTEN</div>
+		</div>
 
 	<?php else : ?>
 

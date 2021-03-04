@@ -136,7 +136,7 @@ class EnquetesController extends AppController {
 	public function vulin($id = null, $enqueteSeason = null) {
 		/// This theme is the temporary way of enabling the enquetes for everyone
 		$this->theme = 'Clubman';
-		$this->layout = 'enquete';
+		$this->layout = 'enquete-bootstrap';
 		if (!$enqueteSeason) {
 			$enqueteSeason = $this->currentSeason;
 		}

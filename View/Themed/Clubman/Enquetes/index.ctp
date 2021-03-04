@@ -1,7 +1,7 @@
 <!-- app/View/Enquetes/index.ctp -->
 <h2>Enquetes</h2>
 
-<?= $this->Html->link('Wat meer uitleg', array('controller' => 'help', 'action' => 'mailing_enquete_2020'), array('title' => 'Tribbie-uitleg')); ?>
+<?= $this->Html->link('Wat meer uitleg', array('controller' => 'help', 'action' => 'mailing_enquete_2021'), array('title' => 'Tribbie-uitleg')); ?>
 
 <hr/>
 

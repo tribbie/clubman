@@ -8,7 +8,7 @@
 <?=$this->Html->link('clubman_nieuw_seizoen_2018', array('controller' => 'pages', 'action' => 'help', 'clubman_nieuw_seizoen_2018'), array('title' => 'clubman nieuw seizoen'))?><br/>
 <?=$this->Html->link('database', array('controller' => 'pages', 'action' => 'help', 'database'), array('title' => 'database'))?><br/>
 <?=$this->Html->link('games_tasks (referees and stuff)', array('controller' => 'pages', 'action' => 'help', 'games_tasks'), array('title' => 'games_tasks'))?><br/>
-<?=$this->Html->link('mailing_enquete_2018', array('controller' => 'pages', 'action' => 'help', 'mailing_enquete_2018'), array('title' => 'mailing_enquete_2018'))?><br/>
+<?=$this->Html->link('mailing_enquete', array('controller' => 'pages', 'action' => 'help', 'mailing_enquete_2021'), array('title' => 'mailing_enquete_2021'))?><br/>
 
 <br/>
 <hr/>
@@ -32,6 +32,9 @@
 <?=$this->Html->link('OLD_mailing_enquete_2015', array('controller' => 'pages', 'action' => 'help', 'OLD_mailing_enquete_2015'), array('title' => 'OLD_mailing_enquete_2015'))?><br/>
 <?=$this->Html->link('OLD_mailing_enquete_2016', array('controller' => 'pages', 'action' => 'help', 'OLD_mailing_enquete_2016'), array('title' => 'OLD_mailing_enquete_2016'))?><br/>
 <?=$this->Html->link('OLD_mailing_enquete_2017', array('controller' => 'pages', 'action' => 'help', 'OLD_mailing_enquete_2017'), array('title' => 'OLD_mailing_enquete_2017'))?><br/>
+<?=$this->Html->link('OLD_mailing_enquete_2018', array('controller' => 'pages', 'action' => 'help', 'OLD_mailing_enquete_2018'), array('title' => 'OLD_mailing_enquete_2018'))?><br/>
+<?=$this->Html->link('OLD_mailing_enquete_2019', array('controller' => 'pages', 'action' => 'help', 'OLD_mailing_enquete_2019'), array('title' => 'OLD_mailing_enquete_2019'))?><br/>
+<?=$this->Html->link('OLD_mailing_enquete_2020', array('controller' => 'pages', 'action' => 'help', 'OLD_mailing_enquete_2020'), array('title' => 'OLD_mailing_enquete_2020'))?><br/>
 <?=$this->Html->link('OLD_mailing_enquetesenior_2012', array('controller' => 'pages', 'action' => 'help', 'OLD_mailing_enquetesenior_2012'), array('title' => 'OLD_mailing_enquetesenior_2012'))?><br/>
 <?=$this->Html->link('OLD_members_refresh', array('controller' => 'pages', 'action' => 'help', 'OLD_members_refresh'), array('title' => 'OLD_members_refresh'))?><br/>
 <?=$this->Html->link('OLD_nieuw_seizoen_2013', array('controller' => 'pages', 'action' => 'help', 'OLD_nieuw_seizoen_2013'), array('title' => 'OLD_nieuw_seizoen_2013'))?><br/>

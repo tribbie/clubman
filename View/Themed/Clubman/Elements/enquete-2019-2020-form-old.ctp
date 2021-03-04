@@ -1,4 +1,4 @@
-<!-- app/View/Elements/enquete-2018-2019-form.ctp -->
+<!-- app/View/Elements/enquete-2019-2020-form.ctp -->
 <h1>Formulier voor <?=$this->request->data['Enquete']['algemeen_naam'];?></h1>
 
 <!-- open the form -->
@@ -14,39 +14,34 @@
 <br/>
 
 <!-- section 0 -->
-<div class="panel panel-info">
-  <div class="panel-heading">
-    <h2 class="panel-title">0. inleiding</h2>
-  </div>
-  <div class="panel-body">
-    <div class='sectie'>
+<h2>0. inleiding</h2>
+<div class='sectie'>
 
-      Hoi,<br/>
-      <br/>
-      In het kader van onze voorbereiding van het volgende seizoen vind je hieronder een beknopte vragenlijst.<br/>
-      We vragen een vijftal minuutjes van je tijd om deze, eventueel samen met je ouders, zorgvuldig en eerlijk in te vullen.<br/>
-      In de mate van het mogelijke zullen we met de geleverde antwoorden en suggesties proberen rekening te houden naar volgend seizoen toe.<br/>
-      Let op! Vragen en/of verlangens die alvast niet in aanmerking komen zijn o.a.:<br/>
-      <ul>
-       <li>Mag ik te laat komen op training?</li>
-       <li>Mag ik mijn GSM bij mij houden tijdens de training?</li>
-       <li>Mag ik mij minder inzetten?</li>
-       <li>...</li>
-      </ul>
-      Ook zullen niet alle vragen even relevant zijn voor iedereen.<br/>
-      <br/>
-      Graag hadden we de ingevulde vragenlijst terug ten laatste op <strong>zondag 17 maart 2019</strong>.<br/>
-      <br/>
-      Alvast hartelijk bedankt voor je medewerking!<br/>
-      <br/>
-      Het bestuur.<br/>
+  Hoi,<br/>
+  <br/>
+  In het kader van onze voorbereiding van het volgende seizoen vind je hieronder een beknopte vragenlijst.<br/>
+  We vragen een vijftal minuutjes van je tijd om deze, eventueel samen met je ouders, zorgvuldig en eerlijk in te vullen.<br/>
+  In de mate van het mogelijke zullen we met de geleverde antwoorden en suggesties proberen rekening te houden naar volgend seizoen toe.<br/>
+  Let op! Vragen en/of verlangens die alvast niet in aanmerking komen zijn o.a.:<br/>
+  <ul>
+   <li>Mag ik te laat komen op training?</li>
+   <li>Mag ik mijn GSM bij mij houden tijdens de training?</li>
+   <li>Mag ik mij minder inzetten?</li>
+   <li>...</li>
+  </ul>
+  Ook zullen niet alle vragen even relevant zijn voor iedereen.<br/>
+  <br/>
+  Graag hadden we de ingevulde vragenlijst terug ten laatste op <strong>dinsdag 31 maart 2020</strong>.<br/>
+  <br/>
+  <font size='+1' color='red'>
+    Let op: Het invullen is verplicht. Het niet invullen van de enquête kan leiden tot het niet meer herinschrijven bij VCW.<br/>
+  </font>
+  <br/>
+  Alvast hartelijk bedankt voor je medewerking!<br/>
+  <br/>
+  Het bestuur.<br/>
 
-    </div> <!-- sectie -->
-  </div>
-</div>
-
-
-
+</div> <!-- sectie -->
 
 
 <!-- section 1 -->
@@ -61,10 +56,10 @@
   <?= $this->Form->input('algemeen_dubbelploeg', array('label' => 'Je dubbelploeg (als je er een hebt)')); ?>
 
   <h3>Volgend seizoen ...</h3>
-  <?= $this->Form->input('algemeen_volgendseizoenploeg', array('label' => 'Je eerst keuze qua ploeg ...', 'type' => 'select', 'options' => array('' => '', 'U11' => 'U11', 'U13' => 'U13', 'U15' => 'U15', 'U17' => 'U17', 'U19' => 'U19', 'seniors' => 'Dames / Heren'))); ?>
+  <?= $this->Form->input('algemeen_volgendseizoenploeg', array('label' => 'Je eerst keuze qua ploeg ...', 'type' => 'select', 'options' => array('' => '', 'U11' => 'U11', 'U13' => 'U13', 'U15' => 'U15', 'U17' => 'U17', 'U19' => 'U19', 'D1' => 'Dames 1', 'D2' => 'Dames 2', 'D3' => 'Dames 3', 'D4' => 'Dames 4', 'H1' => 'Heren 1', 'H2' => 'Heren 2', 'ikstop' => 'Ik stop'))); ?>
   <br/>
   Als je graag wil dubbelen kan je dit hier aangeven. Dubbelen geeft meer speelkansen, meer trainingen en snellere vooruitgang.<br/>
-  <?= $this->Form->input('algemeen_volgendseizoendubbelploeg', array('label' => 'Je gewenste dubbelploeg ...', 'type' => 'select', 'options' => array('' => '', 'U11' => 'U11', 'U13' => 'U13', 'U15' => 'U15', 'U17' => 'U17', 'U19' => 'U19', 'seniors' => 'Dames / Heren'))); ?>
+  <?= $this->Form->input('algemeen_volgendseizoendubbelploeg', array('label' => 'Je gewenste dubbelploeg ...', 'type' => 'select', 'options' => array('' => '', 'U11' => 'U11', 'U13' => 'U13', 'U15' => 'U15', 'U17' => 'U17', 'U19' => 'U19', 'D1' => 'Dames 1', 'D2' => 'Dames 2', 'D3' => 'Dames 3', 'D4' => 'Dames 4', 'H1' => 'Heren 1', 'H2' => 'Heren 2'))); ?>
   <br/>
   Vermits we bij VCW pas vanaf U17 met vaste posities spelen, zijn de volgende 2 vragen eigenlijk enkel in te vullen als je U17, U19 of Seniors (dames/heren) hebt gekozen.<br/>
   <br/>
@@ -96,13 +91,21 @@
   Hieronder vind je de momenten waarop onze club de zaal ter beschikking heeft. Gelieve voor <strong>alle</strong> mogelijkheden aan te geven of het voor jou (eventueel) zou passen om te trainen.<br/>
   <br/>
   <?= $this->Form->input('training_ma19002100', array('label' => 'ma 19:00-21:00 (Meise)', 'type' => 'select', 'options' => array('-' => '', 'ja' => 'ja', 'eventueel' => 'eventueel', 'nee' => 'nee'))); ?>
+  <?= $this->Form->input('training_di17301900', array('label' => 'di 17:30-19:00 (Meise)', 'type' => 'select', 'options' => array('-' => '', 'ja' => 'ja', 'eventueel' => 'eventueel', 'nee' => 'nee'))); ?>
   <?= $this->Form->input('training_di20002200', array('label' => 'di 20:00-22:00', 'type' => 'select', 'options' => array('-' => '', 'ja' => 'ja', 'eventueel' => 'eventueel', 'nee' => 'nee'))); ?>
   <?= $this->Form->input('training_wo16001700', array('label' => 'wo 16:00-17:00', 'type' => 'select', 'options' => array('-' => '', 'ja' => 'ja', 'eventueel' => 'eventueel', 'nee' => 'nee'))); ?>
   <?= $this->Form->input('training_wo17001830', array('label' => 'wo 17:00-18:30', 'type' => 'select', 'options' => array('-' => '', 'ja' => 'ja', 'eventueel' => 'eventueel', 'nee' => 'nee'))); ?>
+  <?= $this->Form->input('training_wo18002000', array('label' => 'wo 18:00-20:00', 'type' => 'select', 'options' => array('-' => '', 'ja' => 'ja', 'eventueel' => 'eventueel', 'nee' => 'nee'))); ?>
   <?= $this->Form->input('training_wo18302000', array('label' => 'wo 18:30-20:00', 'type' => 'select', 'options' => array('-' => '', 'ja' => 'ja', 'eventueel' => 'eventueel', 'nee' => 'nee'))); ?>
   <?= $this->Form->input('training_do20002200', array('label' => 'do 20:00-22:00', 'type' => 'select', 'options' => array('-' => '', 'ja' => 'ja', 'eventueel' => 'eventueel', 'nee' => 'nee'))); ?>
+  <?= $this->Form->input('training_vr17001900', array('label' => 'vr 17:00-19:00', 'type' => 'select', 'options' => array('-' => '', 'ja' => 'ja', 'eventueel' => 'eventueel', 'nee' => 'nee'))); ?>
   <?= $this->Form->input('training_vr17301900', array('label' => 'vr 17:30-19:00', 'type' => 'select', 'options' => array('-' => '', 'ja' => 'ja', 'eventueel' => 'eventueel', 'nee' => 'nee'))); ?>
   <?= $this->Form->input('training_vr19002100', array('label' => 'vr 19:00-21:00', 'type' => 'select', 'options' => array('-' => '', 'ja' => 'ja', 'eventueel' => 'eventueel', 'nee' => 'nee'))); ?>
+
+  <h3>Locatie</h3>
+  Om alle leden voldoende mogelijkheden te kunnen geven om te trainen, kan het zijn dat we andere locaties moeten opzoeken.<br/>
+  Ik kan VCW trainingen in de sporthal van Meise volgen:<br/>
+  <?= $this->Form->input('training_locatie_elders', array('label' => 'Trainen in Sporthal Meise', 'type' => 'select', 'options' => array('ja' => 'ja', 'nee' => 'nee'))); ?>
 
   <h3>Verplaatsing</h3>
   Over je verplaatsing van en naar de trainingen hadden we ook graag jullie toestand geweten.<br/>
@@ -118,7 +121,7 @@
 <h2>3. wedstrijden</h2>
 <div class='sectie'>
 
-  Indien je nog in aanmerking komt voor jeugdvolleybal (18 jaar op 1/1/2020) en om iedereen zoveel mogelijk speelkansen te geven, bestaat er de mogelijkheid om in bepaalde omstandigheden 2 wedstrijden per weekend te spelen.<br/>
+  Indien je nog in aanmerking komt voor jeugdvolleybal (18 jaar op 1/1/2021) en om iedereen zoveel mogelijk speelkansen te geven, bestaat er de mogelijkheid om in bepaalde omstandigheden 2 wedstrijden per weekend te spelen.<br/>
   Wil jij dit doen?<br/>
   <br/>
   <?= $this->Form->input('wedstrijd_aantal', array('label' => 'Aantal wedstrijden', 'type' => 'select', 'options' => array('1' => '1', 'soms 2' => 'soms 2', '2' => '2'))); ?>
@@ -143,10 +146,13 @@
 <h2>5. communicatie</h2>
 <div class='sectie'>
 
+  <?= $this->Form->input('gsm_ik', array('label' => 'mijn GSM nummer')); ?>
   <?= $this->Form->input('mail_ik', array('label' => 'mijn e-mail adres')); ?>
   <?= $this->Form->input('mail_ikfrequentie', array('label' => 'Ik check mijn mails', 'type' => 'select', 'options' => array('' => '', 'dagelijks' => 'dagelijks', 'wekelijks' => 'wekelijks'))); ?>
+  <?= $this->Form->input('gsm_mama', array('label' => 'GSM nummer van mama')); ?>
   <?= $this->Form->input('mail_mama', array('label' => 'e-mail adres van mama')); ?>
   <?= $this->Form->input('mail_mamafrequentie', array('label' => 'Zij checkt haar mails', 'type' => 'select', 'options' => array('' => '', 'dagelijks' => 'dagelijks', 'wekelijks' => 'wekelijks'))); ?>
+  <?= $this->Form->input('gsm_papa', array('label' => 'GSM nummer van papa')); ?>
   <?= $this->Form->input('mail_papa', array('label' => 'e-mail adres van papa')); ?>
   <?= $this->Form->input('mail_papafrequentie', array('label' => 'Hij checkt zijn mails', 'type' => 'select', 'options' => array('' => '', 'dagelijks' => 'dagelijks', 'wekelijks' => 'wekelijks'))); ?>
 
@@ -212,7 +218,7 @@
       ],
       'jeugdsecretaris' => [
         'name' => 'Jeugdsecretaris',
-        'description' => 'Je helpt de cel jeugd met het administratieve reilen en zeilen van alles wat onze toekomstige talentjes aan belangt.'
+        'description' => 'Je helpt de cel jeugd met het administratieve reilen en zeilen van alles wat onze toekomstige talentjes aanbelangt.'
       ],
       'sponsorverantwoordelijke' => [
         'name' => 'Sponsorverantwoordelijke',
@@ -221,6 +227,10 @@
       'feestcomite' => [
         'name' => 'Feestcomité',
         'description' => 'Extra activiteiten zijn onontbeerlijk in een club. Zonder fuiven en eetfestijnen en dergelijke zou het lidgeld gevoelig hoger liggen. Wil je graag het feestcomité vervoegen? Laat het dan weten.'
+      ],
+      'secretaris' => [
+        'name' => 'Secretaris',
+        'description' => 'Je helpt het bestuur met al de administratieve taken, zowel naar de club toe als naar de bond toe.'
       ],
       'voorzitter' => [
         'name' => 'Voorzitter',
@@ -236,7 +246,9 @@
       'jeugdscheidsrechter',
       'jeugdcoordinator',
       'sponsorverantwoordelijke',
-      'feestcomite'
+      'feestcomite',
+      'secretaris',
+      'voorzitter'
     ];
   ?>
   <ul>
@@ -278,7 +290,6 @@
   </ul>
   Wij verwelkomen elke input.<br/>
   <br/>
-  <?= $this->Form->input('diversen_lidgeld_hoog', array('label' => 'Is het bedrag van het lidgeld te hoog?', 'type' => 'select', 'options' => array('' => '', 'ja' => 'ja', 'nee' => 'nee'))); ?>
   <?= $this->Form->input('diversen_tekst', array('label' => 'Het volgende wil ik nog kwijt', 'rows' => '10')); ?>
 
 </div> <!-- sectie -->
