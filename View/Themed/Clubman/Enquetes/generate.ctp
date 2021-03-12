@@ -35,7 +35,7 @@
 			<p>
 				Selecteer de categorieën / teams voor wie je de enquêtes wil genereren, en klik dan op "Toon lijst".<br/>
 				Je krijgt dan alle leden die als hoofdteam in één van deze categorieën zitten.<br/>
-				In stap 2 kan je dan nog individuele leden afvinken maken.
+				In stap 2 kan je dan nog individuele leden afvinken.
 			</p>
 			<hr/>
 			<div class="form-group">

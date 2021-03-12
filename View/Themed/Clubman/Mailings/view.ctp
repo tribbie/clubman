@@ -53,7 +53,7 @@
 						<?php if ($loggedIn and ($this->Permission->iAmOneOf($cmCurrentRoles, ['root']))) : ?>
 							<?= $this->Html->link('stuur mail nu', array('controller' => 'mails', 'action' => 'sendonemail', $mail['id'], 'send'), array('title' => 'Stuur deze mail')) ?>
 							-
-							<?= $this->Html->link('bekijk', array('controller' => 'mails', 'action' => 'view', $mail['id'], 'send'), array('title' => 'Stuur deze mail')) ?>
+							<?= $this->Html->link('bekijk', array('controller' => 'mails', 'action' => 'view', $mail['id']), array('title' => 'Stuur deze mail')) ?>
 						<?php endif; ?>
 					</td>
 				</tr>

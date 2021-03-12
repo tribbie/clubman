@@ -69,11 +69,11 @@
       <ul>
         <li>
           Altijd alleen nieuwe velden toevoegen<br/>
-          In 2020 toegevoegd (of een voorbeeld als er niets is toegevoegd):<br/>
-          <code>
-            alter table cm_enquetes add algemeen_nieuw_veld char(2) DEFAULT '' after algemeen_veld_Ervoor;
-            alter table cm_enquetes add training_di17301900 char(10) DEFAULT '' after training_ma19002100;
-          </code><br/>
+          In 2021 toegevoegd (of een voorbeeld als er niets is toegevoegd):<br/>
+          <code>alter table cm_enquetes add algemeen_score_huidige_trainer_naam char(50) DEFAULT '' after algemeen_score_huidige_trainer;<br/></code>
+          <code>alter table cm_enquetes add algemeen_score_huidige_trainer_2 char(2) DEFAULT '' after algemeen_score_huidige_trainer_naam;<br/></code>
+          <code>alter table cm_enquetes add algemeen_score_huidige_trainer_2_naam char(50) DEFAULT '' after algemeen_score_huidige_trainer_2;<br/></code>
+          <code>alter table cm_enquetes add training_di18302000 char(10) DEFAULT '' after training_di17301900;<br/></code>
         </li>
         <li>
           Nooit velden weghalen (deze tonen we gewoon niet) -- anders gooi je info van vorige jaren weg
@@ -85,12 +85,12 @@
       In de code:
       <ul>
         <li>
-          file Elements/enquete-2019-2020-view.ctp
+          file Elements/enquete-2020-2021-view.ctp
         </li>
         <li>
-          file Elements/enquete-2019-2020-form.ctp
+          file Elements/enquete-2020-2021-form.ctp
           <ul>
-            <li>ten laatste antwoord tegen xx maand 2020</li>
+            <li>ten laatste antwoord tegen 31 maart 2021</li>
             <li>Wedstrijden: 18 jaar op 1/01/2021 ipv 1/1/2020</li>
             <li>Hier staan mogelijk nog enkele seizoensgebonden strings in</li>
             <li>Hier ook eventuele nieuwe vragen toevoegen / oude vragen weglaten</li>
@@ -108,8 +108,9 @@
       <h4>Add test-entries - (for Tribbie en enquete-guys)</h4>
       In clubman:
       <ul>
-        <li>Via speciaal team -> dan Clubman / Extra / enquetes / generate</li>
-        <li>Eventueel wel de naam aanpassen (rechtstreeks in de database)
+        <li>Via speciaal "Curieuzeneuzen" (enquêteurs) team -> dan Clubman / Extra / enquetes / generate</li>
+        <li>Eventueel wel de naam aanpassen (rechtstreeks in de database)<br/>
+          <code>update cm_enquetes set algemeen_naam = concat("AAA - ", algemeen_naam, " - test") where season="2020-2021";<br/></code>
           <ul>
             <li>Bart Seghers --> AAA - Bart Seghers - test</li>
           </ul>
@@ -142,36 +143,16 @@
     </p>
     <p>
       // check for duplicate email adresses<br/>
-      <code>
-        SELECT algemeen_naam, mail_ik, mail_mama, mail_papa FROM cm_enquetes WHERE (season = '2016-2017') AND ((mail_ik = mail_mama) OR (mail_ik = mail_papa) OR (mail_mama = mail_papa)) ORDER BY algemeen_naam;
-      </code>
-      <br/>
+      <code>SELECT algemeen_naam, mail_ik, mail_mama, mail_papa FROM cm_enquetes WHERE (season = '2016-2017') AND ((mail_ik = mail_mama) OR (mail_ik = mail_papa) OR (mail_mama = mail_papa)) ORDER BY algemeen_naam;<br/></code>
       // remove duplicates when identical found<br/>
-      <code>
-        UPDATE cm_enquetes set mail_mama = '' where mail_mama = mail_ik;
-      </code>
-      <br/>
-      <code>
-        UPDATE cm_enquetes set mail_papa = '' where mail_papa = mail_ik;
-      </code>
-      <br/>
-      <code>
-        UPDATE cm_enquetes set mail_papa = '' where mail_papa = mail_mama;
-      </code>
-      <br/>
+      <code>UPDATE cm_enquetes set mail_mama = '' where mail_mama = mail_ik;<br/></code>
+      <code>UPDATE cm_enquetes set mail_papa = '' where mail_papa = mail_ik;<br/></code>
+      <code>UPDATE cm_enquetes set mail_papa = '' where mail_papa = mail_mama;<br/></code>
       // reset empty email adresses to NULL for the CONCAT_WS (concatenate with separator) later on<br/>
-      <code>
-        UPDATE cm_enquetes set mail_mama = NULL where mail_mama = '';
-      </code>
-      <br/>
-      <code>
-        UPDATE cm_enquetes set mail_papa = NULL where mail_papa = '';
-      </code>
-      <br/>
+      <code>UPDATE cm_enquetes set mail_mama = NULL where mail_mama = '';<br/></code>
+      <code>UPDATE cm_enquetes set mail_papa = NULL where mail_papa = '';<br/></code>
       // re-check for duplicate email adresses<br/>
-      <code>
-        SELECT algemeen_naam, mail_ik, mail_mama, mail_papa FROM cm_enquetes WHERE (season = '2016-2017') AND ((mail_ik = mail_mama) OR (mail_ik = mail_papa) OR (mail_mama = mail_papa)) ORDER BY algemeen_naam;
-      </code>
+      <code>SELECT algemeen_naam, mail_ik, mail_mama, mail_papa FROM cm_enquetes WHERE (season = '2016-2017') AND ((mail_ik = mail_mama) OR (mail_ik = mail_papa) OR (mail_mama = mail_papa)) ORDER BY algemeen_naam;<br/></code>
     </p>
   </div>
 </div>

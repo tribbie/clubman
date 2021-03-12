@@ -3,76 +3,105 @@
 <div class='row'>
   <div class="col-sm-12 col-md-10 col-lg-8">
 
-		<div class="table-responsive">
-			<table class='table table-striped table-condensed normalelijst'>
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h2 class="panel-title">0. inleiding</h2>
+      </div>
+      <div class="panel-body">
+        <dl class="dl-horizontal"><dt>Seizoen</dt><dd><?=$enquete['Enquete']['algemeen_seizoen']?></dd></dl>
+        <dl class="dl-horizontal"><dt>Naam</dt><dd><?=$enquete['Enquete']['algemeen_naam']?></dd></dl>
+        <dl class="dl-horizontal"><dt>Code</dt><dd><?=$enquete['Enquete']['id']?></dd></dl>
+      </div>
+    </div>
 
-				<tr class="groupheader info"><td colspan='2'><font size='+1' color='#0000f0'>0. algemeen</font></td></tr>
-				<tr><td><strong>Seizoen</strong></td><td><?=$enquete['Enquete']['algemeen_seizoen']?></td></tr>
-				<tr><td><strong>Naam</strong></td><td><?=$enquete['Enquete']['algemeen_naam']?></td></tr>
-				<tr><td><strong>Code</strong></td><td><?=$enquete['Enquete']['id']?></td></tr>
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h2 class="panel-title">1. huidig seizoen</h2>
+      </div>
+      <div class="panel-body">
+        <dl class="dl-horizontal"><dt>Huidig team</dt><dd><?=$enquete['Enquete']['algemeen_ploeg']?></dd></dl>
+        <dl class="dl-horizontal"><dt>Blij met huidig team</dt><dd><?=$enquete['Enquete']['algemeen_ploeg_tevreden']?></dd></dl>
+        <dl class="dl-horizontal"><dt>Score ploegsfeer</dt><dd><?=$enquete['Enquete']['algemeen_score_huidige_ploegsfeer']?></dd></dl>
+        <dl class="dl-horizontal"><dt>Score trainer</dt><dd><?=$enquete['Enquete']['algemeen_score_huidige_trainer']?></dd></dl>
+        <dl class="dl-horizontal"><dt>Naam trainer</dt><dd><?=$enquete['Enquete']['algemeen_score_huidige_trainer_naam']?></dd></dl>
+        <dl class="dl-horizontal"><dt>Score trainer #2</dt><dd><?=$enquete['Enquete']['algemeen_score_huidige_trainer_2']?></dd></dl>
+        <dl class="dl-horizontal"><dt>Naam trainer #2</dt><dd><?=$enquete['Enquete']['algemeen_score_huidige_trainer_2_naam']?></dd></dl>
+        <dl class="dl-horizontal"><dt>Huidig dubbelteam</dt><dd><?=$enquete['Enquete']['algemeen_dubbelploeg']?></dd></dl>
+        <dl class="dl-horizontal"><dt>Volgend seizoen</dt><dd><?=$enquete['Enquete']['algemeen_volgendseizoen']?></dd></dl>
+      </div>
+    </div>
 
-				<tr class="groupheader info"><td colspan='2'><font size='+1' color='#0000f0'>1. nu en volgend seizoen</font></td></tr>
-				<tr><td><strong>Huidig team</strong></td><td><?=$enquete['Enquete']['algemeen_ploeg']?></td></tr>
-        <tr><td><strong>Blij met huidig team</strong></td><td><?=$enquete['Enquete']['algemeen_ploeg_tevreden']?></td></tr>
-        <tr><td><strong>Score huidige ploegsfeer</strong></td><td><?=$enquete['Enquete']['algemeen_score_huidige_ploegsfeer']?></td></tr>
-        <tr><td><strong>Score huidige trainer</strong></td><td><?=$enquete['Enquete']['algemeen_score_huidige_trainer']?></td></tr>
-				<tr><td><strong>Huidig dubbelteam</strong></td><td><?=$enquete['Enquete']['algemeen_dubbelploeg']?></td></tr>
-				<tr><td><strong>Team volgend seizoen</strong></td><td><strong><?=$enquete['Enquete']['algemeen_volgendseizoenploeg']?></strong></td></tr>
-        <tr><td><strong>Dubbelteam volgend seizoen</strong></td><td><?=$enquete['Enquete']['algemeen_volgendseizoendubbelploeg']?></td></tr>
-        <tr><td><strong>Favoriete positie</strong></td><td><strong><?=$enquete['Enquete']['algemeen_positie_keuze_1']?></strong></td></tr>
-        <tr><td><strong>Tweede favoriete positie</strong></td><td><?=$enquete['Enquete']['algemeen_positie_keuze_2']?></td></tr>
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h2 class="panel-title">2. volgend seizoen</h2>
+      </div>
+      <div class="panel-body">
+        <dl class="dl-horizontal"><dt>Team volgend seizoen</dt><dd><?=$enquete['Enquete']['algemeen_volgendseizoenploeg']?></dd></dl>
+        <dl class="dl-horizontal"><dt>Dubbelteam volgend seizoen</dt><dd><?=$enquete['Enquete']['algemeen_volgendseizoendubbelploeg']?></dd></dl>
+        <dl class="dl-horizontal"><dt>Favoriete positie</dt><dd><?=$enquete['Enquete']['algemeen_positie_keuze_1']?></dd></dl>
+        <dl class="dl-horizontal"><dt>Tweede favoriete positie</dt><dd><?=$enquete['Enquete']['algemeen_positie_keuze_2']?></dd></dl>
+      </div>
+    </div>
 
-				<tr class="groupheader info"><td colspan='2'><font size='+1' color='#0000f0'>2. trainingen</font></td></tr>
-				<tr><td><strong>Aantal trainingen</strong></td><td><?=$enquete['Enquete']['training_aantal']?></td></tr>
-				<tr><td><strong>Ma#1</strong></td><td><?=$enquete['Enquete']['training_ma19002100']?></td></tr>
-				<tr><td><strong>Di#1</strong></td><td><?=$enquete['Enquete']['training_di17301900']?></td></tr>
-        <tr><td><strong>Di#2</strong></td><td><?=$enquete['Enquete']['training_di20002200']?></td></tr>
-        <tr><td><strong>Wo#1</strong></td><td><?=$enquete['Enquete']['training_wo16001700']?></td></tr>
-				<tr><td><strong>Wo#2</strong></td><td><?=$enquete['Enquete']['training_wo17001830']?></td></tr>
-        <tr><td><strong>Wo#3</strong></td><td><?=$enquete['Enquete']['training_wo18002000']?></td></tr>
-				<tr><td><strong>Wo#4</strong></td><td><?=$enquete['Enquete']['training_wo18302000']?></td></tr>
-				<tr><td><strong>Do#1</strong></td><td><?=$enquete['Enquete']['training_do20002200']?></td></tr>
-				<tr><td><strong>Vr#1</strong></td><td><?=$enquete['Enquete']['training_vr17001900']?></td></tr>
-        <tr><td><strong>Vr#2</strong></td><td><?=$enquete['Enquete']['training_vr17301900']?></td></tr>
-				<tr><td><strong>Vr#3</strong></td><td><?=$enquete['Enquete']['training_vr19002100']?></td></tr>
-        <tr><td><strong>Locatie Meise</strong></td><td><?=$enquete['Enquete']['training_locatie_elders']?></td></tr>
-        <tr><td><strong>Verplaatsing</strong></td><td><?=$enquete['Enquete']['training_verplaatsing']?></td></tr>
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h2 class="panel-title">3. trainingen</h2>
+      </div>
+      <div class="panel-body">
+        <dl class="dl-horizontal"><dt>Ma-19002100</dt><dd><?=$enquete['Enquete']['training_ma19002100']?></dd></dl>
+        <dl class="dl-horizontal"><dt>Di-18302000</dt><dd><?=$enquete['Enquete']['training_di18302000']?></dd></dl>
+        <dl class="dl-horizontal"><dt>Di-20002200</dt><dd><?=$enquete['Enquete']['training_di20002200']?></dd></dl>
+        <dl class="dl-horizontal"><dt>Wo-16001700</dt><dd><?=$enquete['Enquete']['training_wo16001700']?></dd></dl>
+        <dl class="dl-horizontal"><dt>Wo-17001830</dt><dd><?=$enquete['Enquete']['training_wo17001830']?></dd></dl>
+        <dl class="dl-horizontal"><dt>Wo-18302000</dt><dd><?=$enquete['Enquete']['training_wo18302000']?></dd></dl>
+        <dl class="dl-horizontal"><dt>Do-20002200</dt><dd><?=$enquete['Enquete']['training_do20002200']?></dd></dl>
+        <dl class="dl-horizontal"><dt>Vr-17301900</dt><dd><?=$enquete['Enquete']['training_vr17301900']?></dd></dl>
+        <dl class="dl-horizontal"><dt>Vr-19002100</dt><dd><?=$enquete['Enquete']['training_vr19002100']?></dd></dl>
+      </div>
+    </div>
 
-				<tr class="groupheader info"><td colspan='2'><font size='+1' color='#0000f0'>3. wedstrijden</font></td></tr>
-				<tr><td><strong>Aantal wedstrijden</strong></td><td><?=$enquete['Enquete']['wedstrijd_aantal']?></td></tr>
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h2 class="panel-title">4. engagement</h2>
+      </div>
+      <div class="panel-body">
+        <dl class="dl-horizontal"><dt>Beperkt engagement</dt><dd><?=$enquete['Enquete']['engagement_andere_activiteiten']?></dd></dl>
+      </div>
+    </div>
 
-				<tr class="groupheader info"><td colspan='2'><font size='+1' color='#0000f0'>4. engagement</font></td></tr>
-				<tr><td><strong>Steun ouders</strong></td><td><?=$enquete['Enquete']['engagement_steun_ouders']?></td></tr>
-				<tr><td><strong>Andere activiteiten</strong></td><td><?=$enquete['Enquete']['engagement_andere_activiteiten']?></td></tr>
-				<tr><td><strong>Prioriteit volleybal</strong></td><td><?=$enquete['Enquete']['engagement_prio_volleybal']?></td></tr>
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h2 class="panel-title">5. communicatie</h2>
+      </div>
+      <div class="panel-body">
+        <dl class="dl-horizontal"><dt>Mail</dt><dd><?=$enquete['Enquete']['mail_ik']?></dd></dl>
+        <dl class="dl-horizontal"><dt>Ik check mail</dt><dd><?=$enquete['Enquete']['mail_ikfrequentie']?></dd></dl>
+        <dl class="dl-horizontal"><dt>Mail mama</dt><dd><?=$enquete['Enquete']['mail_mama']?></dd></dl>
+        <dl class="dl-horizontal"><dt>Mama checkt mail</dt><dd><?=$enquete['Enquete']['mail_mamafrequentie']?></dd></dl>
+        <dl class="dl-horizontal"><dt>Mail papa</dt><dd><?=$enquete['Enquete']['mail_papa']?></dd></dl>
+        <dl class="dl-horizontal"><dt>Papa checkt mail</dt><dd><?=$enquete['Enquete']['mail_papafrequentie']?></dd></dl>
+      </div>
+    </div>
 
-				<tr class="groupheader info"><td colspan='2'><font size='+1' color='#0000f0'>5. communicatie</font></td></tr>
-        <tr><td><strong>GSM</strong></td><td><?=$enquete['Enquete']['gsm_ik']?></td></tr>
-				<tr><td><strong>Mail</strong></td><td><?=$enquete['Enquete']['mail_ik']?></td></tr>
-				<tr><td><strong>Ik check mail</strong></td><td><?=$enquete['Enquete']['mail_ikfrequentie']?></td></tr>
-        <tr><td><strong>GSM mama</strong></td><td><?=$enquete['Enquete']['gsm_mama']?></td></tr>
-				<tr><td><strong>Mail mama</strong></td><td><?=$enquete['Enquete']['mail_mama']?></td></tr>
-				<tr><td><strong>Mama checkt mail</strong></td><td><?=$enquete['Enquete']['mail_mamafrequentie']?></td></tr>
-        <tr><td><strong>GSM papa</strong></td><td><?=$enquete['Enquete']['gsm_papa']?></td></tr>
-				<tr><td><strong>Mail papa</strong></td><td><?=$enquete['Enquete']['mail_papa']?></td></tr>
-				<tr><td><strong>Papa checkt mail</strong></td><td><?=$enquete['Enquete']['mail_papafrequentie']?></td></tr>
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h2 class="panel-title">6. organsatie</h2>
+      </div>
+      <div class="panel-body">
+        <dl class="dl-horizontal"><dt>Naam</dt><dd><?=$enquete['Enquete']['organisatie_naam']?></dd></dl>
+        <dl class="dl-horizontal"><dt>Taak</dt><dd><?=$enquete['Enquete']['organisatie_taak']?></dd></dl>
+      </div>
+    </div>
 
-				<tr class="groupheader info"><td colspan='2'><font size='+1' color='#0000f0'>6. begeleiding</font></td></tr>
-				<tr><td><strong>Mama PV</strong></td><td><?=$enquete['Enquete']['begeleiding_pvmama']?></td></tr>
-				<tr><td><strong>Papa PV</strong></td><td><?=$enquete['Enquete']['begeleiding_pvpapa']?></td></tr>
-			 	<tr><td><strong>Andere PV</strong></td><td><?=$enquete['Enquete']['begeleiding_pvandere']?></td></tr>
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h2 class="panel-title">7. diversen</h2>
+      </div>
+      <div class="panel-body">
+        <dl class="dl-horizontal"><dt>Lidgeld hoog</dt><dd><?=$enquete['Enquete']['diversen_lidgeld_hoog']?></dd></dl>
+        <dl class="dl-horizontal"><dt>Vrije tekst</dt><dd><?=$enquete['Enquete']['diversen_tekst']?></dd></dl>
+      </div>
+    </div>
 
-				<tr class="groupheader info"><td colspan='2'><font size='+1' color='#0000f0'>7. organsatie</font></td></tr>
-			 	<tr><td><strong>Naam</strong></td><td><?=$enquete['Enquete']['organisatie_naam']?></td></tr>
-				<tr><td><strong>Taak</strong></td><td><?=$enquete['Enquete']['organisatie_taak']?></td></tr>
-
-				<tr class="groupheader info"><td colspan='2'><font size='+1' color='#0000f0'>8. volleyleuk</font></td></tr>
-				<tr><td><strong>Volley / VCW is leuk</strong></td><td><?=$enquete['Enquete']['volley_leuk']?></td></tr>
-
-				<tr class="groupheader info"><td colspan='2'><font size='+1' color='#0000f0'>9. diversen</font></td></tr>
-				<tr><td><strong>Vrije tekst</strong></td><td><?=$enquete['Enquete']['diversen_tekst']?></td></tr>
-
-			</table>
-		</div>
 	</div>
 </div>

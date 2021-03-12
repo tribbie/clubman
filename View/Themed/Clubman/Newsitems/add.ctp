@@ -138,9 +138,48 @@
 						['table', ['table']],
 						['insert', ['link', 'picture']]
 					]
-				}
+				},
+				callbacks: {
+						onImageUpload: function(files) {
+								for(let i=0; i < files.length; i++) {
+										$.uploadImage(files[i]);
+								}
+						}
+				},
+				height: 500,
 			});
 	});
+
+	$.uploadImage = function (file) {
+			let thisImageData = new FormData();
+			thisImageData.append('imagedata', file, file.name);
+			$.ajax({
+					method: 'POST',
+					url: "<?=$this->Html->url(array('action' => 'ajuploadimage', 'ext' => 'json'))?>",
+					contentType: false,
+					cache: false,
+					processData: false,
+					data: thisImageData,
+					dataType: 'json',
+					success: function (img) {
+							console.log(img);
+							console.log(img.data.resultdata.rc.uploadimage);
+							console.log(img.data.resultdata.url);
+							if (img.data.resultdata.rc.uploadimage == 0) {
+								var imageUrl = img.data.resultdata.url;
+								console.log("Inserting " + imageUrl);
+								$('#NewsitemContent').summernote('insertImage', imageUrl);
+							} else {
+								console.log(img.data.resultdata);
+								$('#NewsitemContent').summernote('insertText', img.data.resultdata.error);
+							}
+							//$('#NewsitemContent').summernote('insertImage', img);
+					},
+					error: function (jqXHR, textStatus, errorThrown) {
+							console.error(textStatus + " " + errorThrown);
+					}
+			});
+	};
 </script>
 
 <?php
