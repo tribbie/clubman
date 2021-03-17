@@ -196,7 +196,8 @@
   </div>
   <div class="panel-body">
     <p>
-      Check the mailings@vcwolvertem.be mailbox
+      Check the webmailer@vcwolvertem.be mailbox (voor eventuele problems)
+      Check the mailings@vcwolvertem.be mailbox (die krijgt bcc geloof ik)
     </p>
   </div>
 </div>

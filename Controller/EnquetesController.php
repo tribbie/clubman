@@ -187,12 +187,10 @@ class EnquetesController extends AppController {
 																												'algemeen_score_huidige_ploegsfeer',
 																												'algemeen_score_huidige_trainer', 'algemeen_score_huidige_trainer_naam',
 																												'algemeen_score_huidige_trainer_2', 'algemeen_score_huidige_trainer_2_naam',
-																												'algemeen_dubbelploeg',
 																												'algemeen_volgendseizoen',
 																												'algemeen_volgendseizoenploeg',
 																												'algemeen_positie_keuze_1',
 																												'algemeen_positie_keuze_2',
-																												'algemeen_volgendseizoendubbelploeg',
 																												'training_ma19002100',
 																												'training_di18302000',
 																												'training_di20002200',
@@ -206,8 +204,7 @@ class EnquetesController extends AppController {
 																												'mail_ik', 'mail_ikfrequentie',
 																												'mail_mama', 'mail_mamafrequentie',
 																												'mail_papa', 'mail_papafrequentie',
-																												'organisatie_naam', 'organisatie_taak',
-																												'diversen_lidgeld_hoog'
+																												'organisatie_naam', 'organisatie_taak'
 		                                                ),
 		                               'recursive' => -1, 'order' => array('algemeen_naam'))));
 	}

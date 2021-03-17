@@ -26,7 +26,6 @@
         <dl class="dl-horizontal"><dt>Naam trainer</dt><dd><?=$enquete['Enquete']['algemeen_score_huidige_trainer_naam']?></dd></dl>
         <dl class="dl-horizontal"><dt>Score trainer #2</dt><dd><?=$enquete['Enquete']['algemeen_score_huidige_trainer_2']?></dd></dl>
         <dl class="dl-horizontal"><dt>Naam trainer #2</dt><dd><?=$enquete['Enquete']['algemeen_score_huidige_trainer_2_naam']?></dd></dl>
-        <dl class="dl-horizontal"><dt>Huidig dubbelteam</dt><dd><?=$enquete['Enquete']['algemeen_dubbelploeg']?></dd></dl>
         <dl class="dl-horizontal"><dt>Volgend seizoen</dt><dd><?=$enquete['Enquete']['algemeen_volgendseizoen']?></dd></dl>
       </div>
     </div>
@@ -37,7 +36,6 @@
       </div>
       <div class="panel-body">
         <dl class="dl-horizontal"><dt>Team volgend seizoen</dt><dd><?=$enquete['Enquete']['algemeen_volgendseizoenploeg']?></dd></dl>
-        <dl class="dl-horizontal"><dt>Dubbelteam volgend seizoen</dt><dd><?=$enquete['Enquete']['algemeen_volgendseizoendubbelploeg']?></dd></dl>
         <dl class="dl-horizontal"><dt>Favoriete positie</dt><dd><?=$enquete['Enquete']['algemeen_positie_keuze_1']?></dd></dl>
         <dl class="dl-horizontal"><dt>Tweede favoriete positie</dt><dd><?=$enquete['Enquete']['algemeen_positie_keuze_2']?></dd></dl>
       </div>
@@ -98,7 +96,6 @@
         <h2 class="panel-title">7. diversen</h2>
       </div>
       <div class="panel-body">
-        <dl class="dl-horizontal"><dt>Lidgeld hoog</dt><dd><?=$enquete['Enquete']['diversen_lidgeld_hoog']?></dd></dl>
         <dl class="dl-horizontal"><dt>Vrije tekst</dt><dd><?=$enquete['Enquete']['diversen_tekst']?></dd></dl>
       </div>
     </div>

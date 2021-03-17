@@ -32,7 +32,7 @@
       In de mate van het mogelijke zullen we met de geleverde antwoorden en suggesties proberen rekening te houden naar volgend seizoen toe.<br/>
       Ook zullen niet alle vragen even relevant zijn voor iedereen.<br/>
       <br/>
-      Graag hadden we de ingevulde vragenlijst terug ten laatste op <strong>zondag 31 maart 2021</strong>.<br/>
+      Graag hadden we de ingevulde vragenlijst terug ten laatste op <strong>woensdag 31 maart 2021</strong>.<br/>
       <br/>
       Alvast hartelijk bedankt voor je medewerking!<br/>
       <br/>
@@ -64,7 +64,6 @@
       <?= $this->Form->input('algemeen_score_huidige_trainer_naam', array('label' => 'Naam van de (hoofd)trainer', 'class' => 'form-control')); ?>
       <?= $this->Form->input('algemeen_score_huidige_trainer_2', array('label' => 'Tevredenheid over de huidge 2de trainer (als je die hebt)', 'class' => 'form-control', 'type' => 'select', 'options' => array('' => '', '0' => '0', '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6', '7' => '7', '8' => '8', '9' => '9', '10' => '10'))); ?>
       <?= $this->Form->input('algemeen_score_huidige_trainer_2_naam', array('label' => 'Naam van de 2de trainer', 'class' => 'form-control')); ?>
-      <?= $this->Form->input('algemeen_dubbelploeg', array('label' => 'Je dubbelploeg (als je er een hebt)', 'class' => 'form-control')); ?>
 
       <h3>Volgend seizoen ...</h3>
       <?= $this->Form->input('algemeen_volgendseizoen', array('label' => 'Het belangrijkste ...', 'class' => 'form-control', 'type' => 'select', 'options' => array('BLIJF' => 'ik blijf bij VCW', 'STOP' => 'ik stop met volleybal', 'ELDERS' => 'ik stop bij VCW'))); ?>
@@ -98,9 +97,6 @@
       <br/>
 
       <?= $this->Form->input('algemeen_volgendseizoenploeg', array('label' => 'Je eerst keuze qua ploeg ...', 'class' => 'form-control', 'type' => 'select', 'options' => array('' => '', 'U11' => 'U11', 'U13' => 'U13', 'U15' => 'U15', 'U17' => 'U17', 'U19' => 'U19', 'seniors' => 'Dames / Heren'))); ?>
-      <br/>
-      Als je graag wil dubbelen kan je dit hier aangeven. Dubbelen geeft meer speelkansen, meer trainingen en snellere vooruitgang.<br/>
-      <?= $this->Form->input('algemeen_volgendseizoendubbelploeg', array('label' => 'Je gewenste dubbelploeg ...', 'class' => 'form-control', 'type' => 'select', 'options' => array('' => '', 'U11' => 'U11', 'U13' => 'U13', 'U15' => 'U15', 'U17' => 'U17', 'U19' => 'U19', 'seniors' => 'Dames / Heren'))); ?>
       <br/>
       Vermits we bij VCW pas vanaf U17 met vaste posities spelen, zijn de volgende 2 vragen eigenlijk enkel in te vullen als je U17, U19 of Seniors (dames/heren) hebt gekozen.<br/>
       <br/>
@@ -279,7 +275,6 @@
       </ul>
       Wij verwelkomen elke input.<br/>
       <br/>
-      <?= $this->Form->input('diversen_lidgeld_hoog', array('label' => 'Is het bedrag van het lidgeld te hoog?', 'class' => 'form-control', 'type' => 'select', 'options' => array('' => '', 'ja' => 'ja', 'nee' => 'nee'))); ?>
       <?= $this->Form->input('diversen_tekst', array('label' => 'Het volgende wil ik nog kwijt', 'class' => 'form-control', 'rows' => '10')); ?>
 
     </div> <!-- sectie -->
